@@ -32,7 +32,7 @@ drawDots = function() {
     vertices = [];
     let amountX = 50;
     let amountY = 36;
-    let t = (frameCount + 0) * 1.25;
+    let t = (frameCount + 0) * 0.25;
     let a = 0.05;
     let i = 0;
     let oriX;
@@ -40,8 +40,10 @@ drawDots = function() {
         for (let y = 0; y < amountY; y += 1) {
             let ox = x;
             let oy = y;
-            let xx = x + cos(ox + t) * 0.3;
-            let yy = y + sin(oy + t) * 0.3;
+            let dx = max(x, 10) - min(x, 10);
+            let dy = max(y, 10) - min(y, 10);
+            let xx = x + cos(dx + t) * 1;
+            let yy = y + sin(dy + t) * 1;
             if (i == 0) {
                 oriX = xx;
             }
