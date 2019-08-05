@@ -28,12 +28,12 @@ logJavaScriptConsole(70 * 70);
 
 drawDots = function() {
     vertices = [];
-    let t = (frameCount + 0) * 0.0125;
+    let t = (frameCount + 0) * 0.1;
     let a = 0.0015;
     for (let x = 0; x <= 70; x += 1) {
         for (let y = 0; y <= 70; y += 1) {
-            let xx = x + cos(y * (x - 30) * a + t) * cos(y * t) * 1;
-            let yy = y + sin(x * y * x * a + t) * sin(y * t) * 1;
+            let xx = x + cos(x * y + t) * cos(t);
+            let yy = y + sin(x * y + t) * sin(t);
             vertices.push(xx * 0.025 - 0.85, yy * 0.025 - 0.9, 0.0);
         }
     }
