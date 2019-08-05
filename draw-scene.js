@@ -32,8 +32,8 @@ drawDots = function() {
     let a = 0.00025;
     for (let x = 0; x <= 120; x += 1) {
         for (let y = 0; y <= 120; y += 1) {
-            let xx = x + cos(((x - 1000) * y) * y * a * sin((x - 1000) * a) + t) * 2;
-            let yy = y + sin(y * (y + 1000 * sin(t * 1e-1)) * a * sin(x * y * a) + t) * 2;
+            let xx = x + cos(((x - 1000) * y) * y * a * sin((x - 1000) * a) + t) * 5;
+            let yy = y + sin(y * (y + 1000 * sin(t * 1e-1)) * a * sin(x * y * a) + t) * 5;
             vertices.push(xx * 0.015 - 0.9, yy * 0.015 - 0.92, 0.0);
         }
     }
