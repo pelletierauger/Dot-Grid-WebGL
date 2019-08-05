@@ -38,21 +38,10 @@ drawDots = function() {
     let oriX;
     for (let x = 0; x < amountX; x += 1) {
         for (let y = 0; y < amountY; y += 1) {
-            let ox = x + 14 * sin(t * 1e-2);
-            let oy = y + 15 * cos(t * 1e-2);
-//             ox = x;
-//             oy = y;
-            let xx = x + cos(ox * 1 * oy * a + t) * 2;
-            let yy = y + sin(y * 1) * sin(oy) * sin(oy + ox + t) * 2;
-//             
-            let xx2 = x + cos(oy * ox * a) * 0.5;
-            let yy2 = y + sin(ox * a + oy * a) * 0.5;
-//             let xx = x;
-//             let yy = y;
-            xx = lerp(xx, xx2, 1, abs(sin(t * 1e-1)));
-            yy = lerp(yy, yy2, 1, abs(sin(t * 1e-1)));
-//             xx = lerp(xx, cos(i * t * 1e-3) * i * 0.0125 * 0.65 + 25, 0.05);
-//             yy = lerp(yy, sin(i * t * 1e-3) * i * 0.0125 + 25, 0.05);
+            let ox = x;
+            let oy = y;
+            let xx = x + cos(ox + t) * 0.3;
+            let yy = y + sin(oy + t) * 0.3;
             if (i == 0) {
                 oriX = xx;
             }
