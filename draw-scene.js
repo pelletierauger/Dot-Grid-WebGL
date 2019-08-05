@@ -32,31 +32,31 @@ drawDots = function() {
     vertices = [];
     let amountX = 50;
     let amountY = 36;
-    let t = (frameCount + 0) * 0.5;
-    let a = 0.0015;
+    let t = (frameCount + 0) * 0.25;
+    let a = 0.15;
     let i = 0;
     let oriX;
     for (let x = 0; x < amountX; x += 1) {
         for (let y = 0; y < amountY; y += 1) {
             let ox = x + 14 * sin(t * 1e-2);
-            let oy = y + 15 * cos(t * 1e-2);
-            ox = x;
+            let oy = 100 + y + 15 * cos(t * 1e-2);
+//             ox = x;
 //             oy = y;
-            let xx = x + cos(ox * 1 + ox * oy * a + t) * 1;
+            let xx = x + cos(ox * 1 * oy * a + t) * 2;
             let yy = y + sin(y * 1) * sin(oy) * sin(oy + ox + t) * 2;
 //             
-            let xx2 = x + cos(oy * (ox - 25) * oy * a + t) * 0.5;
-            let yy2 = y + sin(ox) * 0.5;
+            let xx2 = x + cos(oy * ox * a) * 0.5;
+            let yy2 = y + sin(cos(oy) * a) * 0.5;
 //             let xx = x;
 //             let yy = y;
-            xx = lerp(xx, xx2, abs(sin(t * 1e-1)));
-            yy = lerp(yy, yy2, abs(sin(t * 1e-1)));
+            xx = lerp(xx, xx2, 1, abs(sin(t * 1e-1)));
+            yy = lerp(yy, yy2, 1, abs(sin(t * 1e-1)));
 //             xx = lerp(xx, cos(i * t * 1e-3) * i * 0.0125 * 0.65 + 25, 0.05);
 //             yy = lerp(yy, sin(i * t * 1e-3) * i * 0.0125 + 25, 0.05);
             if (i == 0) {
                 oriX = xx;
             }
-            vertices.push((xx - oriX) * 0.035 - 0.85, yy * 0.05 - 0.85, 0.0);
+            vertices.push((xx - 0) * 0.035 - 0.85, yy * 0.05 - 0.85, 0.0);
             i++;
         }
     }
