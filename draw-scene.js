@@ -32,7 +32,7 @@ drawDots = function() {
     let a = 0.5;
     for (let x = 0; x <= 70; x += 1) {
         for (let y = 0; y <= 70; y += 1) {
-            let xx = x + cos(y * a + t) + cos(x * y * a + t) * 0.5;
+            let xx = x + sin(y * a + t) + cos(x * y * a + t) * 0.5;
             let yy = y + sin(x * a + t) + sin(x * a + t) * 0.5;
             vertices.push(xx * 0.025 - 0.85, yy * 0.025 - 0.9, 0.0);
         }
