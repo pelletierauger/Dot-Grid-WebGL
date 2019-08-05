@@ -24,21 +24,26 @@ function drawBG() {
 }
 
 
-// logJavaScriptConsole(70 * 70);
+logJavaScriptConsole(50 * 36);
+
 
 drawDots = function() {
     vertices = [];
-    let t = (frameCount + 0) * 0.0125;
-    let a = 0.015;
-    let count = 0;
-    for (let x = 0; x < 50; x += 1) {
-        for (let y = 0; y < 50; y += 1) {
-            let xx = x + cos(y * (x - 30) * a + t) * 1;
-            let yy = y + sin(x * y * x * x * a + t) * sin(x * t) * 1;
+    let amountX = 50;
+    let amountY = 36;
+    let t = (frameCount + 0) * 0.5;
+    let a = 0.0015;
+    let i = 0;
+    for (let x = 0; x < amountX; x += 1) {
+        for (let y = 0; y < amountY; y += 1) {
+            let xx = x + cos(y * x * (x - 30) * a + t) * 0.2;
+            let yy = y + sin(y * a + t) * sin(x + t) * 0.2;
 //             let xx = x;
 //             let yy = y;
-            vertices.push(xx * 0.035 - 0.85, yy * 0.035 - 0.85, 0.0);
-            count++;
+//             xx = lerp(xx, cos(i * t * 1e-3) * i * 0.0125 * 0.65 + 25, 0.05);
+//             yy = lerp(yy, sin(i * t * 1e-3) * i * 0.0125 + 25, 0.05);
+            vertices.push(xx * 0.035 - 0.85, yy * 0.05 - 0.85, 0.0);
+            i++;
         }
     }
 //     logJavaScriptConsole(count);
@@ -65,5 +70,5 @@ drawDots = function() {
     // Clear the color buffer bit
     // gl.clear(gl.COLOR_BUFFER_BIT);
     // Draw the triangle
-    gl.drawArrays(gl.POINTS, 0, 2500);
+    gl.drawArrays(gl.POINTS, 0, amountX * amountY);
 }
