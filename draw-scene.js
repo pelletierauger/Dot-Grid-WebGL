@@ -44,8 +44,13 @@ drawDots = function() {
             oy = y;
             let xx = x + cos(ox * 1 + ox * oy * a + t) * 1;
             let yy = y + sin(y * 1) * sin(oy) * sin(oy + ox + t) * 2;
+//             
+            let xx2 = x + cos(oy * (ox + 0) * oy * a + t) * 0.5;
+            let yy2 = y + sin(ox) * 0.5;
 //             let xx = x;
 //             let yy = y;
+            xx = lerp(xx, xx2, 1, abs(sin(t * 1e-1)));
+            yy = lerp(yy, yy2, 1, abs(sin(t * 1e-1)));
 //             xx = lerp(xx, cos(i * t * 1e-3) * i * 0.0125 * 0.65 + 25, 0.05);
 //             yy = lerp(yy, sin(i * t * 1e-3) * i * 0.0125 + 25, 0.05);
             if (i == 0) {
