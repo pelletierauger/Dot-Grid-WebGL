@@ -30,11 +30,15 @@ drawDots = function() {
     vertices = [];
     let t = (frameCount + 0) * 0.1;
     let a = 0.00005;
+    let off = 0;
     for (let x = 0; x <= 120; x += 1) {
         for (let y = 0; y <= 120; y += 1) {
-            let xx = x + cos(((x - 57) * y) * y * a * sin((x - 10) * a) + t) * 2;
-            let yy = y + sin(y * x * (y * sin(x * 1e-1)) * a + t) * 2;
-            vertices.push(xx * 0.015 - 0.9, yy * 0.015 - 0.92, 0.0);
+            let xx = x + cos(y * a + t);
+            let yy = y + sin(y * x * y * a + t) * cos(y * 1e10) * 10;
+            if (x == 0) {
+                off = xx;
+            }
+            vertices.push((xx - off) * 0.015 - 0.9, yy * 0.015 - 0.92, 0.0);
         }
     }
     // Create an empty buffer object to store the vertex buffer
