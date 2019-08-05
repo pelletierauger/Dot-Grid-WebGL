@@ -24,7 +24,7 @@ function drawBG() {
 }
 
 
-logJavaScriptConsole(70 * 70);
+// logJavaScriptConsole(70 * 70);
 
 drawDots = function() {
     vertices = [];
