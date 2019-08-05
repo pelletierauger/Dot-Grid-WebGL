@@ -28,13 +28,13 @@ logJavaScriptConsole(70 * 70);
 
 drawDots = function() {
     vertices = [];
-    let t = (frameCount + 0) * 0.02;
-    let a = 0.005;
+    let t = (frameCount + 0) * 0.2;
+    let a = 0.5;
     for (let x = 0; x <= 70; x += 1) {
         for (let y = 0; y <= 70; y += 1) {
-            let xx = x + cos(x * y * a + t) + cos(x * y * a + t) * 10;
-            let yy = y + sin(y * y * a + t) + sin(x * y * a + t) * 10;
-            vertices.push(xx * 0.02 - 0.75, yy * 0.02 - 0.75, 0.0);
+            let xx = x + cos(y * a + t) + cos(x * y * a + t) * 0.5;
+            let yy = y + sin(x * a + t) + sin(x * a + t) * 0.5;
+            vertices.push(xx * 0.025 - 0.85, yy * 0.025 - 0.9, 0.0);
         }
     }
     // Create an empty buffer object to store the vertex buffer
