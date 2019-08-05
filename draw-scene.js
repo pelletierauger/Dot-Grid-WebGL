@@ -24,7 +24,8 @@ function drawBG() {
 }
 
 
-logJavaScriptConsole(50 * 36);
+// gl.clearColor(0.0, 0.0, 0.0, 1.0);
+// logJavaScriptConsole(50 * 36);
 
 
 drawDots = function() {
@@ -36,8 +37,10 @@ drawDots = function() {
     let i = 0;
     for (let x = 0; x < amountX; x += 1) {
         for (let y = 0; y < amountY; y += 1) {
-            let xx = x + cos(y * x * (x - 30) * a + t) * 0.2;
-            let yy = y + sin(y * a + t) * sin(x + t) * 0.2;
+            let ox = x + 40 * sin(t * 1e-2);
+            let oy = y + 50 * cos(t * 1e-2);
+            let xx = x + cos(oy * ox * (ox - 30) * a + t) * 0.4;
+            let yy = y + sin(oy * a + t) * sin(ox + t) * 0.4;
 //             let xx = x;
 //             let yy = y;
 //             xx = lerp(xx, cos(i * t * 1e-3) * i * 0.0125 * 0.65 + 25, 0.05);
