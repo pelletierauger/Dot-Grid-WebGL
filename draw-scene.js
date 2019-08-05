@@ -32,21 +32,21 @@ drawDots = function() {
     vertices = [];
     let amountX = 50;
     let amountY = 36;
-    let t = (frameCount + 0) * 0.25;
-    let a = 0.15;
+    let t = (frameCount + 0) * 1.25;
+    let a = 0.05;
     let i = 0;
     let oriX;
     for (let x = 0; x < amountX; x += 1) {
         for (let y = 0; y < amountY; y += 1) {
             let ox = x + 14 * sin(t * 1e-2);
-            let oy = 100 + y + 15 * cos(t * 1e-2);
+            let oy = y + 15 * cos(t * 1e-2);
 //             ox = x;
 //             oy = y;
             let xx = x + cos(ox * 1 * oy * a + t) * 2;
             let yy = y + sin(y * 1) * sin(oy) * sin(oy + ox + t) * 2;
 //             
             let xx2 = x + cos(oy * ox * a) * 0.5;
-            let yy2 = y + sin(cos(oy) * a) * 0.5;
+            let yy2 = y + sin(ox * a + oy * a) * 0.5;
 //             let xx = x;
 //             let yy = y;
             xx = lerp(xx, xx2, 1, abs(sin(t * 1e-1)));
