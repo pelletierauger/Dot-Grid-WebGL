@@ -26,7 +26,7 @@ function drawBG() {
 
 // gl.clearColor(0.0, 0.0, 0.0, 1.0);
 // logJavaScriptConsole(50 * 36);
-
+// logJavaScriptConsole(max(2, 10));
 
 drawDots = function() {
     vertices = [];
@@ -40,10 +40,10 @@ drawDots = function() {
         for (let y = 0; y < amountY; y += 1) {
             let ox = x;
             let oy = y;
-            let dx = max(x, 10) - min(x, 10);
-            let dy = max(y, 10) - min(y, 10);
-            let xx = x + cos(dx + t) * 1;
-            let yy = y + sin(dy + t) * 1;
+            let dx = abs(x - 20);
+            let dy = abs(y - 20);
+            let xx = x + sin(dx * 100 + t * 2) * map(dx, 0, 50, 0, 3);
+            let yy = y + cos(dy * 100 + t * 2) * map(dy, 0, 50, 0, 3);
             if (i == 0) {
                 oriX = xx;
             }
