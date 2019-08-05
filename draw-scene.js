@@ -33,7 +33,7 @@ drawDots = function() {
     let amountX = 50;
     let amountY = 36;
     let t = (frameCount + 0) * 0.25;
-    let a = 0.00015;
+    let a = 0.0015;
     let i = 0;
     let oriX;
     for (let x = 0; x < amountX; x += 1) {
@@ -42,8 +42,8 @@ drawDots = function() {
             let oy = y + 15 * cos(t * 1e-2);
             ox = x;
             oy = y;
-            let xx = x + cos(oy * oy * ox * a + t) * 1;
-            let yy = y + sin(oy * a + t) * sin(oy + ox + t) * 1;
+            let xx = x + cos(ox * 1 + ox * oy * a + t) * 1;
+            let yy = y + sin(y * 1) * sin(oy) * sin(oy + ox + t) * 2;
 //             let xx = x;
 //             let yy = y;
 //             xx = lerp(xx, cos(i * t * 1e-3) * i * 0.0125 * 0.65 + 25, 0.05);
