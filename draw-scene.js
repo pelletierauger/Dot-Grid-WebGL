@@ -40,8 +40,8 @@ drawDots = function() {
         for (let y = 0; y < amountY; y += 1) {
             let ox = x;
             let oy = y;
-            let dx = abs(x - 20);
-            let dy = abs(y - 20);
+            let dx = abs(x - map(sin(t * 1e-8), -1, 1, 5, 45));
+            let dy = abs(y - map(sin(t * 1e-8), -1, 1, 6, 30));
             let xx = x + sin(dx * 100 + t * 2) * map(dx, 0, 50, 0, 3);
             let yy = y + cos(dy * 100 + t * 2) * map(dy, 0, 50, 0, 3);
             if (i == 0) {
