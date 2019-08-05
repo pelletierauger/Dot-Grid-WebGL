@@ -33,7 +33,7 @@ drawDots = function() {
     let count = 0;
     for (let x = 0; x < 50; x += 1) {
         for (let y = 0; y < 50; y += 1) {
-            let xx = x + cos(y * (x - 30) * a + t) * cos(y * t) * 1;
+            let xx = x + cos(y * (x - 30) * a + t) * 1;
             let yy = y + sin(x * y * x * x * a + t) * sin(x * t) * 1;
 //             let xx = x;
 //             let yy = y;
