@@ -32,9 +32,9 @@ drawDots = function() {
     let a = 0.0005;
     for (let x = 0; x <= 120; x += 1) {
         for (let y = 0; y <= 120; y += 1) {
-            let xx = x + cos((x + 1) * y * a * sin(x * a) + t) * 10;
-            let yy = y + sin(y * (y + 10) * a * sin(x * y * a) + t) * 10;
-            vertices.push(xx * 0.015 - 0.9, yy * 0.0125 - 0.85, 0.0);
+            let xx = x + cos((x * y) * y * a * sin(x * a) + t) * 2;
+            let yy = y + sin(y * (y + 1000) * a * sin(x * y * a) + t) * 2;
+            vertices.push(xx * 0.015 - 0.9, yy * 0.015 - 0.92, 0.0);
         }
     }
     // Create an empty buffer object to store the vertex buffer
