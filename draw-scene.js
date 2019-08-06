@@ -41,10 +41,12 @@ drawDots = function() {
 //         for (let h = 0; h < 10; h++) {
             let angInc = Math.PI * 2 / 60;
             for (let an = 0; an < TWO_PI; an += angInc) {
-                let aan = an * sin(t + w * w);
-                let x = cos(aan + w) * w;
-                let y = sin(aan + w) * w;
-//                 x *= sin(x * y);
+                let aan = an * sin(t + w * w) * tan(an * 0.1);
+                let x = cos(aan + w + t * w * 1) * w;
+                let y = sin(aan + w + t * w * 1) * w;
+//                 x += sin(x * y * x) * 0.5;
+//                 y += cos(y) * 0.5;
+//                 x *= sin(x * x * y);
                 vertices.push(x * 0.65, y, 0);
                 amount++;
             }
