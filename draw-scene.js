@@ -39,14 +39,16 @@ drawDots = function() {
             let oy = y - 100;
             let dx = abs(cos(x) * 0.01 - 25);
             let dy = abs(sin(y) * 0.01 - 25);
-            let xx = x + pow(cos(y * 0.5 + t * 0.025), 700) * y * x * 200.5;
-            let yy = y + pow(sin(x * 0.5 + t * 0.025), 700) * y * x * 200.5;
-//             xx += cos(oy * 10) * sin(oy * 10)2
-//             yy += cos(oy * 10) * sin(oy * 10);
+            let xx = x + pow(cos(y * x * y + t * 0.15), 700) * sin(x * y) * x * x * 2.5;
+            let yy = y + pow(sin(x * x * y + t * 0.15), 700) * sin(x * y) * x * x * 2.5;
+            xx += map(cos(x * t), -1, 1, 0.5, 1) * 0.5;
+            yy += map(sin(y * t), -1, 1, 0.5, 1) * 0.5;
             if (i == 0) {
                 oriX = xx;
             }
-            vertices.push((xx - 0) * 0.05 * 1.0 - 1.2, yy * 0.05 * 1.0 - 1.3, 0.0);
+            let ranX = Math.random() * 0.025;
+            let ranY = Math.random() * 0.025;
+            vertices.push((xx - 0 + ranX) * 0.05 * 1.0 - 1.2, (yy + ranY) * 0.05 * 1.0 - 1.3, 0.0);
             i++;
         }
     }
