@@ -39,8 +39,8 @@ drawDots = function() {
             let oy = y - 100;
             let dx = abs(x - 25);
             let dy = abs(y - 25);
-            let xx = x + cos(x * 50 + t * 0.75) * map(x + cos(x + y) * 4, 0, 50, 0, 20) * 0.5;
-            let yy = y + sin(x * 50 + t * 0.75) * map(y + sin(x) * 4, 0, 50, 0, 20) * 0.5;
+            let xx = x + cos(x * 50 + t * 0.5) * map(x + cos(x + y) * 4, 0, 50, 0, 20) * 0.5;
+            let yy = y + sin(y * 50 + t * 0.5) * map(y + sin(x) * 4, 0, 50, 0, 20) * 0.5;
 //             xx += cos(oy * 10) * sin(oy * 10);
 //             yy += cos(oy * 10) * sin(oy * 10);
             if (i == 0) {
