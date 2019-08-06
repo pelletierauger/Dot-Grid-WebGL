@@ -33,22 +33,23 @@ drawDots = function() {
     let t = (frameCount + 0) * 0.1;
     let a = 0.0005;
     let i = 0;
-    for (let x = 0; x < amountX; x += 1) {
-        for (let y = 0; y < amountY; y += 1) {
-            let ox = x;
-            let oy = y;
-            let dx = abs(x - map(sin(t * 1e-8), -1, 1, 50, 50));
-            let dy = abs(y - map(sin(t * 1e-8), -1, 1, 30, 30));
-            let xx = x + sin(dx * 100 + t * 2) * map(dx, 0, 50, 0, 3);
-            let yy = y + cos(dy * 100 + t * 2) * map(dy, 0, 50, 0, 3);
-//             xx += cos(x * 0.2) * sin(y * 0.2);
-//             yy += sin(x * 0.2) * sin(y * 0.2);
-            if (i == 0) {
-                oriX = xx;
+    let amount = 0;
+    vertices.push(0, 0, 0);
+    amount++;
+    for (let w = 0; w < 2.5; w += 0.05) {
+//         vertices.push(w * 0.65, 0, 0);
+//         for (let h = 0; h < 10; h++) {
+            let angInc = Math.PI * 2 / 60;
+            for (let an = 0; an < TWO_PI; an += angInc) {
+                let aan = an * sin(t + w * w);
+                let x = cos(aan + w) * w;
+                let y = sin(aan + w) * w;
+//                 x *= sin(x * y);
+                vertices.push(x * 0.65, y, 0);
+                amount++;
             }
-            vertices.push((xx - 0) * 0.017 - 0.85, yy * 0.028 - 0.85, 0.0);
-            i++;
-        }
+//         }
+//         amount++;
     }
     // Create an empty buffer object to store the vertex buffer
     // var vertex_buffer = gl.createBuffer();
@@ -73,5 +74,5 @@ drawDots = function() {
     // Clear the color buffer bit
     // gl.clear(gl.COLOR_BUFFER_BIT);
     // Draw the triangle
-    gl.drawArrays(gl.POINTS, 0, amountX * amountY);
+    gl.drawArrays(gl.POINTS, 0, amount);
 }
