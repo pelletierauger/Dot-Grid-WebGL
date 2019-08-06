@@ -31,12 +31,12 @@ drawDots = function() {
     let amountX = 50;
     let amountY = 50;
     let t = (frameCount + 14000) * 0.025;
-    let a = 0.0005 * sin(t * 0.05);
+    let a = 0.005 * sin(t * 0.05);
     let i = 0;
     for (let x = 0; x < amountX; x += 1) {
         for (let y = 0; y < amountY; y += 1) {
-            let ox = x - 100;
-            let oy = y - 50;
+            let ox = x + 100 * cos(t * 0.5);
+            let oy = y + 100 * sin(t * 0.5);
             let dx = abs(cos(x) * 0.01 - 25);
             let dy = abs(sin(y) * 0.01 - 25);
             let xx = x + pow(cos(a * ox * oy + t * 0.000005), 70) * sin(ox * oy) * ox * ox * 2.5;
