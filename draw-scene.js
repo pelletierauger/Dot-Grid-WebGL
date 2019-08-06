@@ -31,7 +31,7 @@ drawDots = function() {
     let amountX = 50;
     let amountY = 50;
     let t = (frameCount + 10) * 0.15;
-    let a = 0.000005;
+    let a = 0.00005;
     let i = 0;
     for (let x = 0; x < amountX; x += 1) {
         for (let y = 0; y < amountY; y += 1) {
@@ -39,14 +39,14 @@ drawDots = function() {
             let oy = y - 100;
             let dx = abs(cos(x) * 0.01 - 25);
             let dy = abs(sin(y) * 0.01 - 25);
-            let xx = x + cos(x * a * i + t) * cos(t * y * 1e-4);
-            let yy = y + sin(x * a * i + t) * sin(t * x * 1e-4);
+            let xx = x + cos(y * a * i + t) * cos(t * y * 1e-3) * 2;
+            let yy = y + sin(x * a * i + t) * sin(t * x * 1e-3) * 2;
 //             xx += cos(oy * 10) * sin(oy * 10);
 //             yy += cos(oy * 10) * sin(oy * 10);
             if (i == 0) {
                 oriX = xx;
             }
-            vertices.push((xx - 0) * 0.05 * 1.0 - 1.2, yy * 0.05 * 1.0 - 1., 0.0);
+            vertices.push((xx - 0) * 0.05 * 1.0 - 1.2, yy * 0.05 * 1.0 - 1.3, 0.0);
             i++;
         }
     }
