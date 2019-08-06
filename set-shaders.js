@@ -72,7 +72,7 @@ void main() {
 //     uv.x += 0.25;
 //     uv.y += 0.2;
 //     uv.x += 3.5;
-    uv *= 0.5;
+//     uv *= 0.5;
     float d = length(uv);
     float t = time * 0.125 * 0.06125 * 0.5;
     t *= 2.;
@@ -98,8 +98,8 @@ void main() {
     vec2 newV = (uv + tan(uv.y * 3.)) - (p + sin(uv.x * 3.));
     newV += cos(sin(uv * 20.));
     col *= sin(atan(newV.x, newV.y));
-      col *= sin(sin(atan(newV.x, newV.y) * (sin(t * 100.) * 1.)) * 10. + sin(t * 10.) * 100.);
-      col *= sin(cos(atan(newV.x, newV.y) * (sin(t * 100.) * 1.)) * 10. + cos(t * 10.) * 100.);
+//       col *= sin(sin(atan(newV.x, newV.y) * (sin(t * 100.) * 1.)) * 10. + sin(t * 10.) * 100.);
+//       col *= sin(cos(atan(newV.x, newV.y) * (sin(t * 100.) * 1.)) * 10. + cos(t * 10.) * 100.);
 //       col *= sin(sin(atan(newV.x, newV.y) * (sin(t * 100.) * 1.)) * 10. + cos(t * 10.) * 100.);
 //col -=  CircleRGB(uv, p2, 0.2, 0.2, vec3(1.0, 1.0, 1.0));
 //     col = max(col, 0.);
@@ -111,7 +111,7 @@ void main() {
     float rando = rand(uvf) * 0.075;
 //     col.r -= rando * 1.;
      col.g *= 0.5;
-    gl_FragColor = vec4((col- rando) * 0.0, 1.0);
+    gl_FragColor = vec4((col- rando) * 1.0, 1.0);
 }
 // endGLSL
     `;
@@ -188,7 +188,7 @@ setDotsShaders = function() {
         alpha = smoothstep(0.015, 0.000125, dist_squared) * 0.49;
         float rando = rand(pos);
         // gl_FragColor = vec4(1.0, (1.0 - dist_squared * 40.) * 0.6, 0.0, alpha + ((0.12 - dist_squared) * 4.) - (rando * 0.2));
-        gl_FragColor = vec4(0.1 - 1.1 * alpha, 0.01 + 0.9 * alpha, 0.3, (0.6 - dist_squared * 10.0 - (rando * 0.1)) * 0.125 + alpha) * 3.0;
+        gl_FragColor = vec4(0.9 - 1.1 * alpha, 0.01 + 0.9 * alpha, 0.0, (0.8 - dist_squared * 10.0 - (rando * 0.1)) * 0.125 + alpha) * 3.0;
 //         gl_FragColor = vec4(1.0, 1.0 - dist_squared * 1.0, 0.0, 0.35 - dist_squared - (rando * 0.2));
         // gl_FragColor = vec4(d * 0.001, uv.x, 0.0, 0.25);
     }

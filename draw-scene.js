@@ -27,14 +27,18 @@ function drawBG() {
 // logJavaScriptConsole(120 * 120);
 
 drawDots = function() {
+    let amountX = 100;
+    let amountY = 60;
     vertices = [];
     let t = (frameCount + 0) * 0.1;
     let a = 0.0005;
-    for (let x = 0; x < 120; x += 1) {
-        for (let y = 0; y < 120; y += 1) {
-            let xx = x + cos((x * y) * y * a * sin(x * a) + t) * 2;
-            let yy = y + sin(y * (y + 1000) * a * sin(x * y * a) + t) * 2;
-            vertices.push(xx * 0.015 - 0.9, yy * 0.015 - 0.92, 0.0);
+    for (let x = 0; x < amountX; x += 1) {
+        for (let y = 0; y < amountY; y += 1) {
+            let ox = x - 150 * sin(t * 0.1);
+            let oy = y - 150 * cos(t * 0.1);
+            let xx = x + cos((ox * oy) * oy * a * sin(ox * a) + t) * 2;
+            let yy = y + sin(oy * oy * a * sin(ox * oy * a) + t) * 2;
+            vertices.push(xx * 0.018 - 0.9, yy * 0.03 - 0.92, 0.0);
         }
     }
     // Create an empty buffer object to store the vertex buffer
@@ -60,5 +64,5 @@ drawDots = function() {
     // Clear the color buffer bit
     // gl.clear(gl.COLOR_BUFFER_BIT);
     // Draw the triangle
-    gl.drawArrays(gl.POINTS, 0, 14400);
+    gl.drawArrays(gl.POINTS, 0, amountX * amountY);
 }
