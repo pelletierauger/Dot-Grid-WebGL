@@ -91,7 +91,7 @@ void main() {
     float siz = sin(t * 100.);
     float siz2 = sin(t * 50.);
     p2 = vec2(0.0, 0.0);
-    vec3 col = CircleRGB(uv, p2, 1.9, 0.2, vec3(1., 1.4, 1.0));
+    vec3 col = CircleRGB(uv, p2, 1.9, 0.2, vec3(2., 1.4, 1.0));
     col.r *= sin(length(uv - p) * (6. + sin(1. * 20.) * 0.0001));
 //     col.r += abs(sin(length(uv - p) * (0.1 + sin(1. * 2.) * 0.001)) * 5.);
     col.g *= sin(length(uv - p) * (6. + sin(1. * 20.) * 0.01));
@@ -99,7 +99,7 @@ void main() {
     newV += cos(sin(uv * 20.));
     col *= sin(atan(newV.x, newV.y));
       col *= sin(sin(atan(newV.x, newV.y) * (sin(t * 100.) * 1.)) * 10. + sin(t * 10.) * 100.);
-      col *= sin(cos(atan(newV.x, newV.y) * (sin(t * 100.) * 1.)) * 10. + cos(t * 10.) * 100.);
+//       col *= sin(cos(atan(newV.x, newV.y) * (sin(t * 100.) * 1.)) * 10. + cos(t * 10.) * 100.);
 //       col *= sin(sin(atan(newV.x, newV.y) * (sin(t * 100.) * 1.)) * 10. + cos(t * 10.) * 100.);
 //col -=  CircleRGB(uv, p2, 0.2, 0.2, vec3(1.0, 1.0, 1.0));
 //     col = max(col, 0.);
@@ -111,7 +111,7 @@ void main() {
     float rando = rand(uvf) * 0.075;
 //     col.r -= rando * 1.;
      col.g *= 0.5;
-    gl_FragColor = vec4((col- rando) * 0.0, 1.0);
+    gl_FragColor = vec4((col- rando) * 1.0, 1.0);
 }
 // endGLSL
     `;

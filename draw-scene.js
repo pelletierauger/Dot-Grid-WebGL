@@ -31,13 +31,13 @@ drawDots = function() {
     let amountX = 50;
     let amountY = 50;
     let t = (frameCount + 10) * 0.005;
-    let a = 0.5;
+    let a = 0.05;
     for (let x = 0; x < amountX; x += 1) {
         for (let y = 0; y < amountY; y += 1) {
-            let ox = x - 20;
-            let oy = y - 20;
-            let xx = x + cos(ox * t + oy * t * 0.001) * 1;
-            let yy = y + sin(oy * t) * 1;
+            let ox = x;
+            let oy = y;
+            let xx = x + cos(oy * ox * a * t + oy * t * 0.001) * 1;
+            let yy = y + sin(oy * ox * a * t) * 1;
             vertices.push(xx * 0.035 - 0.84, yy * 0.035 - 0.84, 0.0);
         }
     }
