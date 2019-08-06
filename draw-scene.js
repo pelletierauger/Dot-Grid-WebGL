@@ -24,14 +24,14 @@ function drawBG() {
 }
 
 
-logJavaScriptConsole(120 * 120);
+// logJavaScriptConsole(120 * 120);
 
 drawDots = function() {
     vertices = [];
     let t = (frameCount + 0) * 0.1;
     let a = 0.0005;
-    for (let x = 0; x <= 120; x += 1) {
-        for (let y = 0; y <= 120; y += 1) {
+    for (let x = 0; x < 120; x += 1) {
+        for (let y = 0; y < 120; y += 1) {
             let xx = x + cos((x * y) * y * a * sin(x * a) + t) * 2;
             let yy = y + sin(y * (y + 1000) * a * sin(x * y * a) + t) * 2;
             vertices.push(xx * 0.015 - 0.9, yy * 0.015 - 0.92, 0.0);

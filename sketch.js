@@ -67,6 +67,7 @@ draw = function() {
 // function windowResized() {
 //     resizeCanvas(windowWidth, windowHeight);
 // }
+// gl.clearColor(0.0, 0.0, 0.0, 1.0);
 
 function keyPressed() {
     if (keysActive) {
