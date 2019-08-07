@@ -40,11 +40,11 @@ drawDots = function() {
             let oy = y + 50;
             let dx = abs(cos(x) * 1) * 0.25;
             let dy = abs(sin(y) * 1) * 0.25;
-            let xx = x + 0;
-            let yy = y + 0;
-//             xx += map(cos(x * t), -1, 1, 0.5, 0.4) * 2;
-//             yy += map(sin(y * t), -1, 1, 0.5, 0.4) * 2;
-            xx += sin(ix * ox * 0.0125 + ix + t);
+            let xx = x;
+            let yy = y;
+//             xx += map(cos(x + t), -1, 1, 0.5, 0.4) * sin(ox);
+//             yy += map(sin(y + t), -1, 1, 0.5, 0.4) * sin(ox);
+            xx += cos(ix * ox * 0.0125 + ix + i * 0.1 + t);
             yy += sin(iy * ox * 0.0125 + ix + iy + t);
             if (i == 0) {
                 oriX = xx;
