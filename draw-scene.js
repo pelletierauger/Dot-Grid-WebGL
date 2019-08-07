@@ -44,8 +44,8 @@ drawDots = function() {
             let yy = y + 0;
 //             xx += map(cos(x * t), -1, 1, 0.5, 0.4) * 2;
 //             yy += map(sin(y * t), -1, 1, 0.5, 0.4) * 2;
-            xx += sin(ix * ox * 0.025 + t);
-            yy += sin(iy * ox * 0.025 + t);
+            xx += sin(ix * ox * 0.0125 + ix + t);
+            yy += sin(iy * ox * 0.0125 + ix + iy + t);
             if (i == 0) {
                 oriX = xx;
             }
