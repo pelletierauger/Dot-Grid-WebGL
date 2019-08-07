@@ -39,10 +39,10 @@ drawDots = function() {
             let oy = y + 1 * sin(t * 5);
             let dx = abs(cos(x) * 10 - 25);
             let dy = abs(sin(y) * 10 - 25);
-            let xx = x + pow(cos(dy + a * dx + t * 5), 70);
-            let yy = y + pow(sin(dx + a * dy + t * 5), 70);
-//             xx += map(cos(x * t), -1, 1, 0.5, 1) * 0.5;
-//             yy += map(sin(y * t), -1, 1, 0.5, 1) * 0.5;
+            let xx = x + pow(cos(cos(dx * 0.01 + dy * 0.01) + t * 2), -1);
+            let yy = y + pow(sin(sin(dx * 0.01 + dy * 0.01) + t * 2), -1);
+//             xx += map(cos(x * t), -1, 1, 0.5, 1) * 2;
+//             yy += map(sin(y * t), -1, 1, 0.5, 1) * 2;
             if (i == 0) {
                 oriX = xx;
             }
