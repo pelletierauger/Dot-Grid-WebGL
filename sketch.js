@@ -20,7 +20,7 @@ function setup() {
     socket = io.connect('http://localhost:8080');
     // shaders require WEBGL mode to work
     pixelDensity(1);
-    cnvs = createCanvas(windowWidth, windowHeight, WEBGL);
+    cnvs = createCanvas(windowWidth, windowWidth * 9 / 16, WEBGL);
     canvasDOM = document.getElementById('defaultCanvas0');
     gl = canvas.getContext('webgl');
 
@@ -54,13 +54,13 @@ draw = function() {
     setBGShaders();
     gl.uniform1f(time, drawCount);
     drawBG();
-//     if (frameCount == 1) {
-        setDotsShaders();
-//     }
+    //     if (frameCount == 1) {
+    setDotsShaders();
+    //     }
     drawDots();
-//     setOverlayShaders();
-//     gl.uniform1f(time, drawCount);
-//     drawBG();
+    //     setOverlayShaders();
+    //     gl.uniform1f(time, drawCount);
+    //     drawBG();
     drawCount += drawIncrement;
 }
 
