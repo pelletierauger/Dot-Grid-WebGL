@@ -30,7 +30,7 @@ drawDots = function() {
     vertices = [];
     let amountX = 50;
     let amountY = 50;
-    let t = (frameCount + 120800 + 20000) * 0.05;
+    let t = (frameCount + 120800 + 20000) * 0.25;
     let a = 0.005 * sin(t * 0.05);
     let i = 0;
     let ix = 1, iy = 1;
@@ -40,24 +40,24 @@ drawDots = function() {
             let oy = y - 95;
             let dx = abs(cos(x) * 1) * 0.25;
             let dy = abs(sin(y) * 1) * 0.25;
-            let xx = x;
-            let yy = y;
+            let xx = x + tan(x) * 8;
+            let yy = y + tan(x) * 8;
 //             xx += map(cos(x + t), -1, 1, 0.5, 0.4) * sin(ox) * 20;
 //             yy += map(sin(y + t), -1, 1, 0.5, 0.4) * sin(ox) * 20;
-            xx += cos((ix - 10) * iy * 1e-2 + t);
+            xx += cos((ix - 50) * iy * 1e-2 + t);
             yy += sin(ix * iy * 1e-2 + t);
-            xx += cos((ix - 10) * (iy - 80) * 1e-2 + t);
-            yy += sin(ix * (iy - 50) * 1e-2 + t);
-            xx += cos((ix - 10) * (iy - 80) * 1e-2 + t);
-            yy += sin(ix * (iy - 50) * 1e-2 + t);
+//             xx += cos((ix - 10) * (iy - 80) * 1e-2 + t);
+//             yy += sin(ix * (iy - 50) * 1e-2 + t);
+//             xx += cos((ix - 10) * (iy - 80) * 1e-2 + t);
+//             yy += sin(ix * (iy - 50) * 1e-2 + t);
             if (i == 0) {
                 oriX = xx;
             }
-            ix = xx * 0.8;
-            iy = yy * 0.8;
+            ix = xx * 0.8 * sin(xx * 0.07);
+            iy = yy * 0.8 * sin(yy * 0.07);
             let ranX = Math.random() * 0.025 * 0.5;
             let ranY = Math.random() * 0.025 * 0.5;
-            vertices.push((xx - 0 + ranX) * 0.05 * 1.0 - 1.2, (yy + ranY) * 0.05 * 1.0 - 1.3, 0.0);
+            vertices.push((xx + 15 + ranX) * 0.025 * 1.0 - 1.2, (yy + ranY) * 0.05 * 1.0 - 1.3, 0.0);
             i++;
 //             ix++;
         }
