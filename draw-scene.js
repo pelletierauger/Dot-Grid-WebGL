@@ -44,10 +44,10 @@ drawDots = function() {
             let yy = y;
 //             xx += map(cos(x + t), -1, 1, 0.5, 0.4) * sin(ox) * 20;
 //             yy += map(sin(y + t), -1, 1, 0.5, 0.4) * sin(ox) * 20;
-            xx += cos((ix - 45) * iy * 2e-2 + t);
-            yy += sin(ix * iy * 2e-2 + t);
-            xx += cos((ix - 45) * (iy - 50) * 2e-2 + t);
-            yy += sin(ix * (iy - 50) * 2e-2 + t);
+            xx += cos((ix - 45) * iy * 1e-2 + t);
+            yy += sin(ix * iy * 1e-2 + t);
+            xx += cos((ix - 45) * (iy - 50) * 1e-2 + t);
+            yy += sin(ix * (iy - 50) * 1e-2 + t);
             if (i == 0) {
                 oriX = xx;
             }
