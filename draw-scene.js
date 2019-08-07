@@ -44,15 +44,15 @@ drawDots = function() {
             let yy = y;
 //             xx += map(cos(x + t), -1, 1, 0.5, 0.4) * sin(ox) * 20;
 //             yy += map(sin(y + t), -1, 1, 0.5, 0.4) * sin(ox) * 20;
-            xx += cos((ix - 45) * iy * 1.5e-2 + t);
+            xx += sin((ix - 45) * iy * 1.5e-2 + t);
             yy += sin(ix * iy * 1.5e-2 + t);
-            xx += cos((ix - 45) * (iy - 50) * 1.5e-2 + t);
+            xx += sin((ix - 45) * (iy - 50) * 1.5e-2 + t);
             yy += sin(ix * (iy - 50) * 1.5e-2 + t);
             if (i == 0) {
                 oriX = xx;
             }
-            ix = xx;
-            iy = yy;
+            ix = sin(xx * 0.75 + xx * 0.75 + t);
+            iy = sin(yy * 0.75 + xx * 0.75 + t);
             let ranX = Math.random() * 0.025 * 0.5;
             let ranY = Math.random() * 0.025 * 0.5;
             vertices.push((xx - 0 + ranX) * 0.05 * 1.0 - 1.2, (yy + ranY) * 0.05 * 1.0 - 1.3, 0.0);
