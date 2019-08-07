@@ -36,7 +36,7 @@ drawDots = function() {
     for (let x = 0; x < amountX; x += 1) {
         for (let y = 0; y < amountY; y += 1) {
             let ox = x - 25;
-            let oy = y;
+            let oy = y - 25 * map(sin(t), -1, 1, 0, 1);
             let dx = abs(cos(x) * 1) * 0.25;
             let dy = abs(sin(y) * 1) * 0.25;
             let xx = x + pow(cos((oy * ox * 0.01) + t * 2), 200) * -5;
