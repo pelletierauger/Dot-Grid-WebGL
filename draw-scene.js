@@ -30,7 +30,7 @@ drawDots = function() {
     vertices = [];
     let amountX = 50;
     let amountY = 50;
-    let t = (frameCount + 10000) * 0.005;
+    let t = (frameCount + 100000) * 0.005;
     let a = 0.005 * sin(t * 0.05);
     let i = 0;
     for (let x = 0; x < amountX; x += 1) {
