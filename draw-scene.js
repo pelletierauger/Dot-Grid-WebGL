@@ -41,14 +41,14 @@ drawDots = function() {
     };
     for (let x = 0; x < amountX; x += 1) {
         for (let y = 0; y < amountY; y += 1) {
-            let dx = map(abs(x - 50), 0, 200, 20 * sosc(t, 0, 0.5), 0);
-            let dy = map(abs(y - 50), 0, 200, 20 * cosc(t, 0, 0.5), 0);
+            let dx = map(abs(x - 50), 0, 200, 10 * sosc(t * 1, -0.15, 0.15), 0);
+            let dy = map(abs(y - 50), 0, 200, 10 * cosc(t * 1, -0.15, 0.15), 0);
             let a = atan2(y - abs(y - 50), x - abs(x - 50));
-            let xx = x - 25 + cos(a) * dx * cos(x);
-            let yy = y - 25 + sin(a) * dy * sin(y);
+            let xx = x - 25 + cos(a * 5 + dy * 2) * dx;
+            let yy = y - 25 + sin(a * 5 + dy * 2) * dx;
             let ranX = Math.random() * 0.025 * 0.5;
             let ranY = Math.random() * 0.025 * 0.5;
-            vertices.push((xx + ranX) * 0.05 * 0.85 - 0., (yy + ranY) * 0.05 * 0.85 - 0, 0.0);
+            vertices.push((xx + ranX) * 0.05 * 0.88 + 0.05, (yy + ranY) * 0.05 * 0.88 + 0.025, 0.0);
             i++;
 //             ix++;
         }
