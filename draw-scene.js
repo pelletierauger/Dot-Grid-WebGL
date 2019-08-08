@@ -30,7 +30,7 @@ drawDots = function() {
     vertices = [];
     let amountX = 50;
     let amountY = 50;
-    let t = (frameCount + 120800 + 20000) * 0.001;
+    let t = (frameCount + 0) * 0.001;
     let i = 0;
     let ix = 1, iy = 1;
     let sosc = function(i, min, max) {
