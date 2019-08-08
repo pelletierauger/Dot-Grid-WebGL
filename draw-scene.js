@@ -30,7 +30,7 @@ drawDots = function() {
     vertices = [];
     let amountX = 50;
     let amountY = 50;
-    let t = (frameCount + 120800 + 20000) * 0.025;
+    let t = (frameCount + 120800 + 20000) * 0.075;
     let i = 0;
     let ix = 1, iy = 1;
     let sosc = function(i, min, max) {
@@ -44,8 +44,8 @@ drawDots = function() {
             let dx = map(abs(x - 25), 0, 25, 0, 10);
             let dy = map(abs(y - 25), 0, 25, 0, 10);
             let a = atan2(y - abs(y - 50), x - abs(x - 50));
-            let xx = x - 25 + cos(a * 10 + t) * dx;
-            let yy = y - 25 + sin(a * 10 + t) * dy;
+            let xx = x - 25 + cos(a * 10 + t + dx);
+            let yy = y - 25 + sin(a * 10 + t + dy);
             let ranX = Math.random() * 0.025 * 0.5;
             let ranY = Math.random() * 0.025 * 0.5;
             vertices.push((xx + ranX) * 0.05 * 0.88 + 0.05, (yy + ranY) * 0.05 * 0.88 + 0.025, 0.0);
