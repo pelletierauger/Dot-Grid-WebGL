@@ -41,8 +41,8 @@ drawDots = function() {
     };
     for (let x = 0; x < amountX; x += 1) {
         for (let y = 0; y < amountY; y += 1) {
-            let dx = map(abs(x - 25), 0, 25, 0, 10);
-            let dy = map(abs(y - 25), 0, 25, 0, 10);
+            let dx = map(abs(x - 50), 0, 25, 0, 10);
+            let dy = map(abs(y - 50), 0, 25, 0, 10);
             let a = atan2(y - abs(y - 50), x - abs(x - 50));
             let xx = x - 25 + cos(a * 10 + t + dx);
             let yy = y - 25 + sin(a * 10 + t + dy);
