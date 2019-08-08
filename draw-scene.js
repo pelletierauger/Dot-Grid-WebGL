@@ -31,33 +31,24 @@ drawDots = function() {
     let amountX = 50;
     let amountY = 50;
     let t = (frameCount + 120800 + 20000) * 0.25;
-    let a = 0.005 * sin(t * 0.05);
     let i = 0;
     let ix = 1, iy = 1;
+    let sosc = function(i, min, max) {
+      return map(Math.sin(i), -1, 1, min, max);
+    };
+    let cosc = function(i, min, max) {
+      return map(Math.cos(i), -1, 1, min, max);
+    };
     for (let x = 0; x < amountX; x += 1) {
         for (let y = 0; y < amountY; y += 1) {
-            let ox = x - 92;
-            let oy = y - 95;
-            let dx = abs(cos(x) * 1) * 0.25;
-            let dy = abs(sin(y) * 1) * 0.25;
-            let xx = x + tan(x) * 8;
-            let yy = y + tan(x) * 8;
-//             xx += map(cos(x + t), -1, 1, 0.5, 0.4) * sin(ox) * 20;
-//             yy += map(sin(y + t), -1, 1, 0.5, 0.4) * sin(ox) * 20;
-            xx += cos((ix - 50) * iy * 1e-2 + t);
-            yy += sin(ix * iy * 1e-2 + t);
-//             xx += cos((ix - 10) * (iy - 80) * 1e-2 + t);
-//             yy += sin(ix * (iy - 50) * 1e-2 + t);
-//             xx += cos((ix - 10) * (iy - 80) * 1e-2 + t);
-//             yy += sin(ix * (iy - 50) * 1e-2 + t);
-            if (i == 0) {
-                oriX = xx;
-            }
-            ix = xx * 0.8 * sin(xx * 0.07);
-            iy = yy * 0.8 * sin(yy * 0.07);
+            let dx = map(abs(x - 47), 0, 47, 10 * sosc(t, 0, 0.5), 0);
+            let dy = map(abs(y - 50), 0, 50, 10 * cosc(t, 0, 0.5), 0);
+            let a = atan2(y - abs(y - 50), x - abs(x - 47));
+            let xx = x + cos(a) * dx;
+            let yy = y + sin(a) * dy;
             let ranX = Math.random() * 0.025 * 0.5;
             let ranY = Math.random() * 0.025 * 0.5;
-            vertices.push((xx + 15 + ranX) * 0.025 * 1.0 - 1.2, (yy + ranY) * 0.05 * 1.0 - 1.3, 0.0);
+            vertices.push((xx + ranX) * 0.05 * 0.85 - 1., (yy + ranY) * 0.05 * 0.85 - 1, 0.0);
             i++;
 //             ix++;
         }
