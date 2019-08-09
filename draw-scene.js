@@ -30,31 +30,26 @@ drawDots = function() {
     vertices = [];
     let amountX = 50;
     let amountY = 50;
-    let t = (frameCount + 0) * 0.2;
+    let t = (frameCount + 120800) * 0.005;
+    let a = 0.005 * sin(t * 0.05);
     let i = 0;
-    let ix = 1, iy = 1;
-    let sosc = function(i, min, max) {
-      return map(Math.sin(i), -1, 1, min, max);
-    };
-    let cosc = function(i, min, max) {
-      return map(Math.cos(i), -1, 1, min, max);
-    };
     for (let x = 0; x < amountX; x += 1) {
         for (let y = 0; y < amountY; y += 1) {
-            let dx = map(abs(x - 25), 0, 25, 0, 1);
-            let dy = map(abs(y - 25), 0, 25, 0, 1);
-            let a = atan2(y - abs(y - 50), x - abs(x - 50));
-            let xx = x - 25 + tan(cos(y + t) * sin(a)) * cos(x * 100);
-            let yy = y - 25 + tan(sin(x + t) * sin(a)) * cos(x * 100);
-//          
+            let ox = x;
+            let oy = y;
+            let dx = abs(cos(x) * 1) * 0.25;
+            let dy = abs(sin(y) * 1) * 0.25;
+            let xx = x + pow(cos(dx + ox * oy + t * 12) * 0.0005, 0.5) * 0.25;
+            let yy = y + pow(sin(dx + ox * oy + t * 12) * 0.0005, 0.5) * 0.25;
+//             xx += map(cos(x * t), -1, 1, 0.5, 0.4) * 2;
+//             yy += map(sin(y * t), -1, 1, 0.5, 0.4) * 2;
+            if (i == 0) {
+                oriX = xx;
+            }
             let ranX = Math.random() * 0.025 * 0.5;
             let ranY = Math.random() * 0.025 * 0.5;
-//          
-            xx = (xx + ranX) * 0.05 * 0.88 + 0.05;
-            yy = (yy + ranY) * 0.05 * 0.88 + 0.025;
-            vertices.push(xx, yy, 0.0);
+            vertices.push((xx - 0 + ranX) * 0.05 * 0.8 - 0.99, (yy + ranY) * 0.045 * 1.0 - 1.2, 0.0);
             i++;
-//             ix++;
         }
     }
     // Create an empty buffer object to store the vertex buffer
