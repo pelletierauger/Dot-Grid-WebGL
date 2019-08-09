@@ -39,8 +39,8 @@ drawDots = function() {
             let oy = y;
             let dx = abs(cos(x) * 1) * 0.25;
             let dy = abs(sin(y) * 1) * 0.25;
-            let xx = x + pow(cos(dx + ox * oy + t * 12) * 0.0005, 0.5) * 0.25;
-            let yy = y + pow(sin(dx + ox * oy + t * 12) * 0.0005, 0.5) * 0.25;
+            let xx = x + pow(cos(dx + ox * oy + t * 12) * 5, 0.5) * 0.25;
+            let yy = y + pow(sin(dx + ox * oy + t * 12) * 5, 0.5) * 0.25;
 //             xx += map(cos(x * t), -1, 1, 0.5, 0.4) * 2;
 //             yy += map(sin(y * t), -1, 1, 0.5, 0.4) * 2;
             if (i == 0) {
