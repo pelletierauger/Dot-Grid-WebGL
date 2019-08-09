@@ -35,10 +35,10 @@ drawDots = function() {
     let i = 0;
     for (let x = 0; x < amountX; x += 1) {
         for (let y = 0; y < amountY; y += 1) {
-            let ox = x;
-            let oy = y;
-            let dx = abs(cos(x) * 1) * 0.125;
-            let dy = abs(sin(y) * 1) * 0.125;
+            let ox = x * cos(t * 0.25);
+            let oy = y * sin(t * 0.25);
+            let dx = abs(cos(x) * 1) * 0.5;
+            let dy = abs(sin(y) * 1) * 0.5;
             let xx = x + pow(cos((ox - 48) * (oy + 0) * 0.1 + t * 1) * 0.5, -2) * 0.01;
             let yy = y + pow(sin((ox - 48) * (oy + 0) * 0.1 + t * 1) * 0.5, -2) * 0.01;
 //             xx += map(cos(x * t), -1, 1, 0.5, 0.4) * 2;
