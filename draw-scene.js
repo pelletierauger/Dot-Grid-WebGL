@@ -47,8 +47,8 @@ drawDots = function() {
             let m = 0.00000125;
             let n = i * i * m;
             xx += (cos((i - 0) * 0.5 + n + t)) * 1.75;
-            xx += (cos(iy * 0.5 + n + t)) * 1.75;
-            yy += (sin(ix * 0.5 + n + t)) * 1.75;
+            xx += (cos(iy * 0.45 + n + t)) * 1.75;
+            yy += (sin(ix * 0.45 + n + t)) * 1.75;
 //             xx += cos((ix - 45) * (iy - 50) * 1.5e-2 + t);
 //             yy += sin(ix * (iy - 50) * 1.5e-2 + t);
             if (i == 0) {
