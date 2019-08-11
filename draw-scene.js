@@ -49,8 +49,8 @@ drawDots = function() {
             xx += (cos((i - 0) * 0.5 + n + t)) * 1.5;
             xx += (cos(iy * 0.45 + n + t)) * 1.5;
             yy += (sin(ix * 0.45 + n + t)) * 1.5;
-//             xx += cos((ix - 45) * (iy - 50) * 1.5e-2 + t);
-//             yy += sin(ix * (iy - 50) * 1.5e-2 + t);
+            xx += cos((ix - 45) * (iy - 50) * 1.5e-2 + t);
+            yy += sin(ix * (iy - 50) * 1.5e-2 + t);
             if (i == 0) {
                 oriX = xx;
             }
