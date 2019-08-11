@@ -45,9 +45,10 @@ drawDots = function() {
 //             xx += map(cos(x + t), -1, 1, 0.5, 0.4);
 //             yy += map(sin(y + t), -1, 1, 0.5, 0.4);
             let m = 0.00000125;
-            xx += (cos((i - 0) * 0.5 + i * i * m + t)) * 1.75;
-            xx += (sin(iy * 0.5 + i * i * m + t)) * 1.75;
-            yy += (sin(ix * 0.5 + i * i * m + t)) * 1.75;
+            let n = i * i * m;
+            xx += (cos((i - 0) * 0.5 + n + t)) * 1.75;
+            xx += (cos(iy * 0.5 + n + t)) * 1.75;
+            yy += (sin(ix * 0.5 + n + t)) * 1.75;
 //             xx += cos((ix - 45) * (iy - 50) * 1.5e-2 + t);
 //             yy += sin(ix * (iy - 50) * 1.5e-2 + t);
             if (i == 0) {
