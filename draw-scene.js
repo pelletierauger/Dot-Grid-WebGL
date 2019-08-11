@@ -47,13 +47,14 @@ drawDots = function() {
             let m = 0.00125;
             xx += (cos(ix * 0.5 + ix * iy * m + t)) * 1.75;
             xx += (sin(iy * 0.5 + ix * iy * m + t)) * 1.75;
+            yy += (sin(ix * 0.5 + ix * iy * m + t)) * 1.75;
 //             xx += cos((ix - 45) * (iy - 50) * 1.5e-2 + t);
 //             yy += sin(ix * (iy - 50) * 1.5e-2 + t);
             if (i == 0) {
                 oriX = xx;
             }
-            ix = sin(xx);
-            iy = sin(yy);
+            ix = xx;
+            iy = yy;
             let ranX = Math.random() * 0.025 * 0.5;
             let ranY = Math.random() * 0.025 * 0.5;
             vertices.push((xx - 0 + ranX) * 0.05 * 1.0 - 1.2, (yy + ranY) * 0.05 * 1.0 - 1.3, 0.0);
