@@ -30,7 +30,7 @@ drawDots = function() {
     vertices = [];
     let amountX = 50;
     let amountY = 50;
-    let t = (frameCount + 120800 + 20000) * 0.05;
+    let t = (frameCount + 0) * 0.05;
     let a = 0.005 * sin(t * 0.05);
     let i = 0;
     let ix = 1, iy = 1;
@@ -42,10 +42,10 @@ drawDots = function() {
             let dy = abs(sin(y) * 1) * 0.25;
             let xx = x;
             let yy = y;
-//             xx += map(cos(x + t), -1, 1, 0.5, 0.4) * sin(ox) * 20;
-//             yy += map(sin(y + t), -1, 1, 0.5, 0.4) * sin(ox) * 20;
-            xx += cos((ix + -25) * iy * 1.5e-2 + t + ix * 0.5);
-            yy += sin((ix + -25) * iy * 1.5e-2 + t + ix * 0.5);
+//             xx += map(cos(x + t), -1, 1, 0.5, 0.4);
+//             yy += map(sin(y + t), -1, 1, 0.5, 0.4);
+            xx += cos(cos((ix - 5) + iy * 0.125 + ix * 0.025 + t)) * 2;
+            yy += cos(sin((iy - 5) + iy * 0.125 + iy * 0.025 + t)) * 2;
 //             xx += cos((ix - 45) * (iy - 50) * 1.5e-2 + t);
 //             yy += sin(ix * (iy - 50) * 1.5e-2 + t);
             if (i == 0) {
