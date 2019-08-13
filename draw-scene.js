@@ -41,6 +41,8 @@ drawDots = function() {
             let dy = abs(sin(y) * 0.01) * 8;
             let xx = x + pow(cos((dx + 19) * 3 * (dy - 4) + t * 12) * 0.01, 0.15) * 5;
             let yy = y + pow(sin((dx + 19) * 3 * (dy - 4) + t * 12) * 0.01, 0.15) * 5;
+            xx *= pow(cos((dx + 19) * 3 * (dy - 4) + t * 2) * 0.01, 1) * 100;
+            yy *= pow(sin((dx + 19) * 3 * (dy - 4) + t * 2) * 0.01, 1) * 100;
 //             xx += map(cos(x * t), -1, 1, 0.5, 0.4) * 2;
 //             yy += map(sin(y * t), -1, 1, 0.5, 0.4) * 2;
             if (i == 0) {
@@ -48,7 +50,7 @@ drawDots = function() {
             }
             let ranX = Math.random() * 0.025 * 0.5;
             let ranY = Math.random() * 0.025 * 0.5;
-            vertices.push((xx - 0 + ranX) * 0.05 * 0.8 - 1.05, (yy + ranY) * 0.045 * 1.0 - 1.2, 0.0);
+            vertices.push((xx - 0 + ranX) * 0.05 * 0.35 - 0.01, (yy + ranY) * 0.05 * 0.35 - 0.01, 0.0);
             i++;
         }
     }
