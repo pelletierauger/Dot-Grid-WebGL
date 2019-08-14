@@ -37,10 +37,10 @@ drawDots = function() {
         for (let y = 0; y < amountY; y += 1) {
             let ox = x;
             let oy = y;
-            let dx = cos(x * 0.85 * 0.35);
+            let dx = cos(x * 0.8 * 0.35);
             let dy = sin(y * 0.5 * 0.35);
-            let xx = x + pow(map(cos((sin(dx + dy) + dx + dx) + t * 12), -1, 1, -0.01, 1), 20);
-            let yy = y + pow(map(sin((sin(dx + dy) + dy + dx) + t * 12), -1, 1, -0.01, 1), 20);
+            let xx = x + pow(map(cos((sin(dx + dy) + dx + dx) + dy + t * 12), -1, 1, 0, 1), 0.25) * 2;
+            let yy = y + pow(map(sin((sin(dx + dy) + dy + dy) + dy + t * 12), -1, 1, 0, 1), 0.25) * 2;
 //             xx += map(cos(x * t), -1, 1, 0.5, 0.4) * 2;
 //             yy += map(sin(y * t), -1, 1, 0.5, 0.4) * 2;
             if (i == 0) {
