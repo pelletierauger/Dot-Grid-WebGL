@@ -37,10 +37,10 @@ drawDots = function() {
         for (let y = 0; y < amountY; y += 1) {
             let ox = x;
             let oy = y;
-            let dx = (cos(x) * 0.1) * 8;
-            let dy = (sin(y * x) * 0.1) * 8;
-            let xx = x + pow((cos((dx + 100) * 3 + (sin(dx * dy)) + t * 2) + 0.5) * 0.01, 0.15) * 5;
-            let yy = y + pow((sin((dx + 100) * 3 + (sin(dx * dy)) + t * 2) + 0.5) * 0.01, 0.15) * 5;
+            let dx = cos(x * 0.5);
+            let dy = sin(y * 0.5);
+            let xx = x + pow((cos((sin(dx + dy)) + t * 20)), sin(dy * 0.1));
+            let yy = y + pow((sin((sin(dx + dy)) + t * 20)), sin(dy * 0.1));
 //             xx += map(cos(x * t), -1, 1, 0.5, 0.4) * 2;
 //             yy += map(sin(y * t), -1, 1, 0.5, 0.4) * 2;
             if (i == 0) {
@@ -48,7 +48,7 @@ drawDots = function() {
             }
             let ranX = Math.random() * 0.025 * 0.5;
             let ranY = Math.random() * 0.025 * 0.5;
-            vertices.push((xx - 0 + ranX) * 0.05 * 0.8 - 1.05, (yy + ranY) * 0.045 * 1.0 - 1.2, 0.0);
+            vertices.push((xx - 0 + ranX) * 0.05 * 0.95 - 1.045, (yy + ranY) * 0.045 * 1.0 - 1.2, 0.0);
             i++;
         }
     }
