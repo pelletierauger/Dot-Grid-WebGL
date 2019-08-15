@@ -36,12 +36,12 @@ drawDots = function() {
     let oriX, oriY
     for (let x = 0; x < amountX; x += 1) {
         for (let y = 0; y < amountY; y += 1) {
-            let ox = x - 0;
+            let ox = x - 12;
             let oy = y + 25;
-            let dx = cos(sin(ox * ox * 0.25) * 0.85 * 0.25 * 0.5);
-            let dy = sin(sin(oy * ox * 0.25) * 0.5 * 0.25 * 0.5);
-            let mx = pow(cos((dx + dy + t * 10) * 0.75), 4) * 10;
-            let my = pow(sin((dx + dy + t * 10) * 0.75), 4) * 10;
+            let dx = cos(sin(ox * ox * 0.25) * 0.25 * 0.25);
+            let dy = sin(sin(oy * ox * 0.25) * 0.25 * 0.25);
+            let mx = pow(cos((dx + dy + t * 10) * 1), 2) * 20;
+            let my = pow(sin((dx + dy + t * 10) * 1), 2) * 20;
 //             mx = Math.sign(mx) * -1 * mx;
 //             my = Math.sign(my) * 1 * my;
             let xx = x + mx;

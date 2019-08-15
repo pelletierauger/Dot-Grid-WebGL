@@ -303,12 +303,13 @@ void main() {
     t *= 2.;
     float c = d;
     float r = 0.3;
-    vec2 p = vec2(0.5, 0.0);
+    vec2 p = vec2(-1.0, 0.0);
 //     c = Circle(uv, p, 0.3, 0.1);
-    vec2 p2 = vec2(fract(uv.x * 10. * sin(uv.x * sin(uv.x * 10.)) * tan(t * 1000.)) - 0.5, uv.y);
+    vec2 p2 = vec2(fract(uv.x * 10. * sin(uv.x * sin(uv.x * 1.))) - 0.5, uv.y);
 //     vec4 col = CircleRGB(uv, p2, 0.15, 0.5, vec4(0.7, 1.0, 1.0, 1.0));
-    vec4 col = CircleRGB(uv, p, 0.15, 0.019, vec4(0.75, 0.0, 1.0, 1.0));
-    float rando = rand(uvf) * 0.075;
+    vec4 col = CircleRGB(vec2(uv.y, uv.y), p, 1.5, 1.05, vec4(1.0, 0.0, 0.5, 0.7));
+//     col += CircleRGB(vec2(uv.x, uv.y), vec2(0.0, 0.0), 0.1, 0.01, vec4(0.0, 1.0, 0.0, 0.5));
+    float rando = rand(uvf) * 0.1;
 //     gl_FragColor = vec4(col - rando, col.r);
     gl_FragColor = vec4(col - rando);
 }
@@ -333,3 +334,4 @@ void main() {
     gl.useProgram(shaderProgram);
     time = gl.getUniformLocation(shaderProgram, "time");
 }
+// setOverlayShaders();

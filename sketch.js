@@ -58,9 +58,9 @@ draw = function() {
     setDotsShaders();
     //     }
     drawDots();
-    //     setOverlayShaders();
-    //     gl.uniform1f(time, drawCount);
-    //     drawBG();
+    setOverlayShaders();
+    gl.uniform1f(time, drawCount);
+    drawBG();
     drawCount += drawIncrement;
 }
 
