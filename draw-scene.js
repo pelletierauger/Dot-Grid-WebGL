@@ -33,28 +33,22 @@ drawDots = function() {
     let t = (frameCount + 120800) * 0.005;
     let a = 0.005 * sin(t * 0.05);
     let i = 0;
-    let oriX, oriY
     for (let x = 0; x < amountX; x += 1) {
         for (let y = 0; y < amountY; y += 1) {
-            let ox = x - 0;
-            let oy = y + 25;
-            let dx = cos(sin(ox * ox * 0.25) * 0.85 * 0.25 * 0.5);
-            let dy = sin(sin(oy * ox * 0.25) * 0.5 * 0.25 * 0.5);
-            let mx = pow(cos((dx + dy + t * 10) * 0.75), 4) * 10;
-            let my = pow(sin((dx + dy + t * 10) * 0.75), 4) * 10;
-//             mx = Math.sign(mx) * -1 * mx;
-//             my = Math.sign(my) * 1 * my;
-            let xx = x + mx;
-            let yy = y + my;
+            let ox = x;
+            let oy = y;
+            let dx = abs(cos(x) * 0.01) * 16;
+            let dy = abs(sin(y) * 0.01) * 16;
+            let xx = x + pow(cos((dx + dy) * 20 + t * 12) * 0.1, 0.02) * 5;
+            let yy = y + pow(sin((dx + dy) * 20 + t * 12) * 0.1, 0.02) * 5;
 //             xx += map(cos(x * t), -1, 1, 0.5, 0.4) * 2;
 //             yy += map(sin(y * t), -1, 1, 0.5, 0.4) * 2;
             if (i == 0) {
                 oriX = xx;
-                oriY = yy;
             }
             let ranX = Math.random() * 0.025 * 0.5;
             let ranY = Math.random() * 0.025 * 0.5;
-            vertices.push((xx - oriX + ranX) * 0.05 * 0.95 - 1.145, (yy - oriY + ranY) * 0.05 * 1.0 - 1.25, 0.0);
+            vertices.push((xx - 0 + ranX) * 0.05 * 0.8 - 1.05, (yy + ranY) * 0.045 * 1.0 - 1.2, 0.0);
             i++;
         }
     }
