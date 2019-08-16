@@ -26,6 +26,13 @@ function drawBG() {
 
 // logJavaScriptConsole(120 * 120);
 
+
+oldArr = [];
+for (let i = 0; i < 50 * 50; i++) {
+    oldArr.push({x: 1, y: 1});
+}
+// oldArr = oldArr.fill({x: 1, y: 1}, 0, 50 * 50);
+console.log("Yurp");
 drawDots = function() {
     vertices = [];
     let amountX = 50;
@@ -39,20 +46,26 @@ drawDots = function() {
     let cosc = function(i, min, max) {
       return map(Math.cos(i), -1, 1, min, max);
     };
+    newArr = [];
     for (let x = 0; x < amountX; x += 1) {
         for (let y = 0; y < amountY; y += 1) {
-            let dx = x;
-            let dy = y;
-            let a = atan2(y - abs(y - 50), x - abs(x - 50));
-            let xx = x - 25 + pow(cos(pow(a, 4) + t * 1), 0.9);
-            let yy = y - 25 + pow(sin(pow(a, 4) + t * 1), 0.9);
+            let xx = x + cos(x + t);
+            let yy = y + sin(y + t);
+            let oX = oldArr[i].x;
+            let oY = oldArr[i].y;
+            xx += cos(oX + oY * 0.2);
+            yy += sin(oX * 1);
+            newArr.push({x: xx, y: yy});
+//             
             let ranX = Math.random() * 0.025 * 0.5;
             let ranY = Math.random() * 0.025 * 0.5;
-            vertices.push((xx + ranX) * 0.05 * 0.95 - 0., (yy + ranY) * 0.05 * 0.85 - 0, 0.0);
+            vertices.push((xx + ranX) * 0.05 * 0.95 - 1., (yy + ranY) * 0.05 * 0.9 - 1, 0.0);
             i++;
+//             console.log(i);
 //             ix++;
         }
     }
+    oldArr = newArr;
     // Create an empty buffer object to store the vertex buffer
     // var vertex_buffer = gl.createBuffer();
     //Bind appropriate array buffer to it
