@@ -53,13 +53,13 @@ drawDots = function() {
             let yy = y;
             let oX = oldArr[i].x;
             let oY = oldArr[i].y;
-            xx += cos(oY * 0.25 + t * 2) * 4 + cos(oY * 0.5);
-            yy += sin(oX * 0.25 + t * 2) * 4 + sin(oX * 0.5);
+            xx += cos(pow(oY, 0.7) * 0.9 + t * 2) * 4 + cos(oY * 0.5);
+            yy += sin(pow(oX, 0.7) * 0.9 + t * 2) * 4 + sin(oX * 0.5);
             newArr.push({x: xx, y: yy});
 //             
             let ranX = Math.random() * 0.025 * 0.5;
             let ranY = Math.random() * 0.025 * 0.5;
-            vertices.push((xx + ranX) * 0.05 * 1.0 - 1.0, (yy + ranY) * 0.05 * 1.0 - 1.0, 0.0);
+            vertices.push((xx + ranX) * 0.05 * 1.0 - 1.3, (yy + ranY) * 0.05 * 1.0 - 1.3, 0.0);
             i++;
 //             console.log(i);
 //             ix++;
