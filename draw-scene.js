@@ -33,11 +33,12 @@ for (let i = 0; i < 50 * 50; i++) {
 }
 // oldArr = oldArr.fill({x: 1, y: 1}, 0, 50 * 50);
 console.log("Yurp");
+iter = 0;
 drawDots = function() {
     vertices = [];
     let amountX = 50;
     let amountY = 50;
-    let t = (frameCount) * 0.015 * 2;
+    let t = (frameCount) * 0.015 * 0.25;
     let i = 0;
     let ix = 1, iy = 1;
     let sosc = function(i, min, max) {
@@ -51,10 +52,18 @@ drawDots = function() {
         for (let y = 0; y < amountY; y += 1) {
             let xx = x;
             let yy = y;
-            let oX = oldArr[i].x;
-            let oY = oldArr[i].y;
-            xx += tan(cos((oY) * 0.2 + t * 2)) * cos(oX) * 0.9;
-            yy += tan(sin((oY + oX) * 0.2 + t * 2)) * sin(oY) * 0.9;
+            let oX;
+            let oY;
+            if (iter == 0) {
+                oX = x;
+                oY = y;
+            } else {
+                let ix = oldArr[i].x, iy = oldArr[i].y;
+                oX = x + cos(ix * 0.5 + t * 8) * sin(ix * 0.5 + t * 4) * cos(iy * 0.5 + t * 4) * 2;
+                oY = y + sin(iy * 0.5 + t * 8) * sin(ix * 0.5 + t * 4) * cos(iy * 0.5 + t * 4) * 2;
+            }
+            xx = oX;
+            yy = oY;
             newArr.push({x: xx, y: yy});
 //             
             let ranX = Math.random() * 0.025 * 0.5;
@@ -65,6 +74,7 @@ drawDots = function() {
 //             ix++;
         }
     }
+    iter++;
     oldArr = newArr;
     // Create an empty buffer object to store the vertex buffer
     // var vertex_buffer = gl.createBuffer();
