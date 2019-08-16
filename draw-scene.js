@@ -37,7 +37,7 @@ drawDots = function() {
     vertices = [];
     let amountX = 50;
     let amountY = 50;
-    let t = (frameCount) * 0.025;
+    let t = (frameCount) * 0.15;
     let i = 0;
     let ix = 1, iy = 1;
     let sosc = function(i, min, max) {
@@ -49,17 +49,17 @@ drawDots = function() {
     newArr = [];
     for (let x = 0; x < amountX; x += 1) {
         for (let y = 0; y < amountY; y += 1) {
-            let xx = x;
-            let yy = y;
+            let xx = x + sin(y * 0.1 + x * 0.1) * 10;
+            let yy = y + sin(x * 0.1 + x * 0.1) * 10;
             let oX = oldArr[i].x;
             let oY = oldArr[i].y;
-            xx += cos(oX * 0.75) * cos(oY * 0.5 + t * 2) + cos(oY * 0.5);
-            yy += sin(oY * 0.75) * sin(oX * 0.5 + t * 2) + sin(oX * 0.5);
+            xx += cos(oX * 0.25) * cos(oY * 0.5 + t * 2) + cos(oY * 0.5);
+            yy += sin(oY * 0.25) * sin(oX * 0.5 + t * 2) + sin(oX * 0.5);
             newArr.push({x: xx, y: yy});
 //             
             let ranX = Math.random() * 0.025 * 0.5;
             let ranY = Math.random() * 0.025 * 0.5;
-            vertices.push((xx + ranX) * 0.05 * 0.95 - 1.1, (yy + ranY) * 0.05 * 0.9 - 1.1, 0.0);
+            vertices.push((xx + ranX) * 0.05 * 0.5 - 0.6, (yy + ranY) * 0.05 * 0.7 - 1.0, 0.0);
             i++;
 //             console.log(i);
 //             ix++;
