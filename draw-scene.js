@@ -59,8 +59,8 @@ drawDots = function() {
                 oY = y;
             } else {
                 let ix = oldArr[i].x, iy = oldArr[i].y;
-                oX = x + cos(ix * 0.5 + t * 8) * sin(ix * 0.5 + t * 4) * cos(iy * 0.5 + t * 4) * 2;
-                oY = y + sin(iy * 0.5 + t * 8) * sin(ix * 0.5 + t * 4) * cos(iy * 0.5 + t * 4) * 2;
+                oX = x + cos(ix * 0.5 + t * 8) * sin(ix * 0.5 + t * 40) * cos(iy * 0.5 + t * 8) * 2;
+                oY = y + sin(iy * 0.5 + t * 8) * sin(ix * 0.5 + t * 40) * cos(iy * 0.5 + t * 8) * 2;
             }
             xx = oX;
             yy = oY;
