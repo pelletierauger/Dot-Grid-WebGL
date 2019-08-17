@@ -31,14 +31,14 @@ drawDots = function() {
     let t = (frameCount + 0) * 0.1;
     let a = 0.00005;
     let off = 0;
-    for (let x = 0; x <= 120; x += 1) {
-        for (let y = 0; y <= 120; y += 1) {
-            let xx = x + cos(y * a + t);
-            let yy = y + sin(y * x * y * a + t) * cos(y * 1e10) * 10;
+    for (let x = 0; x <= 150; x += 1) {
+        for (let y = 0; y <= 150; y += 1) {
+            let xx = x + cos(sin(x * 0.2) * sin(y * 0.2) * 8 + t * 2);
+            let yy = y + sin(sin(x * 0.2) * sin(y * 0.2) + t * 2);
             if (x == 0) {
                 off = xx;
             }
-            vertices.push((xx - off) * 0.015 - 0.9, yy * 0.015 - 0.92, 0.0);
+            vertices.push((xx - off) * 0.012 - 0.9, yy * 0.012 - 0.9, 0.0);
         }
     }
     // Create an empty buffer object to store the vertex buffer
@@ -64,5 +64,5 @@ drawDots = function() {
     // Clear the color buffer bit
     // gl.clear(gl.COLOR_BUFFER_BIT);
     // Draw the triangle
-    gl.drawArrays(gl.POINTS, 0, 14400);
+    gl.drawArrays(gl.POINTS, 0, 150 * 150);
 }
