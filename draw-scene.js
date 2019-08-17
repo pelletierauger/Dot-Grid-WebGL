@@ -34,7 +34,7 @@ drawDots = function() {
     for (let x = 0; x <= 150; x += 1) {
         for (let y = 0; y <= 150; y += 1) {
             let xx = x + cos(sin(x * 0.2) * sin(y * 0.2) * 8 + t * 2);
-            let yy = y + sin(sin(x * 0.2) * sin(y * 0.2) + t * 2);
+            let yy = y + sin(sin(x * 0.2) * sin(y * 0.2) * 8 + t * 2);
             if (x == 0) {
                 off = xx;
             }
