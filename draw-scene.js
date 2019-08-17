@@ -33,11 +33,11 @@ drawDots = function() {
     let off = 0;
     for (let x = 0; x <= 150; x += 1) {
         for (let y = 0; y <= 150; y += 1) {
-            let oX = x - 10;
-            let oY = y - 10;
-            let b = 0.05;
-            let xx = x + cos(sin(oX * b) * sin(oY * b) * 45 + t * 2);
-            let yy = y + sin(sin(oX * b) * sin(oY * b) * 45 + t * 2);
+            let oX = x - 75;
+            let oY = y - 80;
+            let b = 0.05 * map(sin(t * 0.125), -1, 1, 0.1, 0.5);
+            let xx = x + cos(sin(oX * b) * sin(oY * b) * 45);
+            let yy = y + sin(sin(oX * b) * sin(oY * b) * 45);
             if (x == 0) {
                 off = xx;
             }
