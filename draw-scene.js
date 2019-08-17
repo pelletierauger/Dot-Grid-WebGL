@@ -33,12 +33,15 @@ drawDots = function() {
     let off = 0;
     for (let x = 0; x <= 150; x += 1) {
         for (let y = 0; y <= 150; y += 1) {
-            let xx = x + cos(sin(x * 0.2) * sin(y * 0.2) * 8 + t * 2);
-            let yy = y + sin(sin(x * 0.2) * sin(y * 0.2) * 8 + t * 2);
+            let oX = x - 10;
+            let oY = y - 10;
+            let b = 0.05;
+            let xx = x + cos(sin(oX * b) * sin(oY * b) * 45 + t * 2);
+            let yy = y + sin(sin(oX * b) * sin(oY * b) * 45 + t * 2);
             if (x == 0) {
                 off = xx;
             }
-            vertices.push((xx - off) * 0.012 - 0.9, yy * 0.012 - 0.9, 0.0);
+            vertices.push((xx - off) * 0.0128 - 0.945, yy * 0.012 - 0.9, 0.0);
         }
     }
     // Create an empty buffer object to store the vertex buffer
