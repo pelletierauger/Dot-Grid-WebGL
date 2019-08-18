@@ -37,7 +37,7 @@ drawDots = function() {
     vertices = [];
     let amountX = 50;
     let amountY = 50;
-    let t = (frameCount) * 0.015;
+    let t = (frameCount) * 0.005;
     let i = 0;
     let ix = 1, iy = 1;
     let sosc = function(i, min, max) {
@@ -51,8 +51,8 @@ drawDots = function() {
         for (let y = 0; y < amountY; y += 1) {
             let xx = x;
             let yy = y;
-            let oX = x;
-            let oY = y;
+            let oX = oldArr[i].x;
+            let oY = oldArr[i].y;
             xx += tan(cos(oY * 0.35 + t * 2)) * 1.5;
             yy += tan(sin((oY * 0.125 + oX * 1.5 + oY * 0.5 + t * 10) * 0.35 + t * 2)) * 1.5;
             newArr.push({x: xx, y: yy});
