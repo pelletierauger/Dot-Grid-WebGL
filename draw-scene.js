@@ -51,10 +51,10 @@ drawDots = function() {
         for (let y = 0; y < amountY; y += 1) {
             let xx = x;
             let yy = y;
-            let oX = oldArr[i].x;
-            let oY = oldArr[i].y;
-            xx += tan(cos((oY) * 0.4 + t * 2)) * 1.25;
-            yy += tan(sin((oY + oX) * 0.4 + t * 2)) * 1.25;
+            let oX = x;
+            let oY = y;
+            xx += tan(cos((oY) * 0.4 + t * 2)) * 2;
+            yy += tan(sin((oY + oX) * 0.4 + t * 2)) * 2;
             newArr.push({x: xx, y: yy});
 //             
             let ranX = Math.random() * 0.025 * 0.5;
