@@ -42,8 +42,8 @@ drawDots = function() {
     let m = sosc(t * 1e-3 + 10, 0.01, 2);
     for (let x = 0; x < amountX; x += 1) {
         for (let y = 0; y < amountY; y += 1) {
-            let dx = x + max(cos(x * 0.125 + t * -2), sin(y + x * 0.25 + t * 0.5));
-            let dy = y + min(sin(y * 0.125 + t * -2), cos(x + x * 0.25 + t * 0.5));
+            let dx = x + max(cos(x * 0.125 + t * -10), sin(y + x * 0.25 + t * 0.5));
+            let dy = y + min(sin(y * 0.125 + t * -10), cos(x + x * 0.25 + t * 0.5));
             vertices.push((dx * 0.05) - 1.25, (dy * 0.05) - 1.25, 0.0);
             i++;
 //             ix++;
