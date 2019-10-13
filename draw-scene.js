@@ -39,16 +39,12 @@ drawDots = function() {
     let cosc = function(i, min, max) {
       return map(Math.cos(i), -1, 1, min, max);
     };
+    let m = sosc(t * 1e-3 + 10, 0.01, 2);
     for (let x = 0; x < amountX; x += 1) {
         for (let y = 0; y < amountY; y += 1) {
-            let dx = x;
-            let dy = y;
-            let a = atan2(y - abs(y - 50), x - abs(x - 50));
-            let xx = x - 25 + pow(cos(pow(a, 4) + t * 1), 0.9);
-            let yy = y - 25 + pow(sin(pow(a, 4) + t * 1), 0.9);
-            let ranX = Math.random() * 0.025 * 0.5;
-            let ranY = Math.random() * 0.025 * 0.5;
-            vertices.push((xx + ranX) * 0.05 * 0.95 - 0., (yy + ranY) * 0.05 * 0.85 - 0, 0.0);
+            let dx = x + tan(sin(y * 0.5 + t * 3));
+            let dy = y + tan(cos(x * 0.5 + t * 3));
+            vertices.push((dx * 0.05) - 1.25, (dy * 0.05) - 1.25, 0.0);
             i++;
 //             ix++;
         }
