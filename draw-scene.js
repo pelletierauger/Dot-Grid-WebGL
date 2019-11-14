@@ -28,7 +28,7 @@ function drawBG() {
 
 drawDots = function() {
     vertices = [];
-    let amountX = 50;
+    let amountX = 25;
     let amountY = 50;
     let t = (frameCount) * 0.025;
     let i = 0;
@@ -43,12 +43,12 @@ drawDots = function() {
         for (let y = 0; y < amountY; y += 1) {
             let dx = x;
             let dy = y;
-            let a = atan2(y - abs(y - 50), x - abs(x - 50));
-            let xx = x - 25 + pow(cos(pow(a, 4) + t * 1), 0.9);
-            let yy = y - 25 + pow(sin(pow(a, 4) + t * 1), 0.9);
+            let a = atan2(y - abs(y - 75), x - abs(x - 75));
+            let xx = x - 25 + pow(tan(pow(a, 1) + t * 1), 1);
+            let yy = y - 25 + pow(tan(pow(a, 1) + t * 1), 1);
             let ranX = Math.random() * 0.025 * 0.5;
             let ranY = Math.random() * 0.025 * 0.5;
-            vertices.push((xx + ranX) * 0.05 * 0.95 - 0., (yy + ranY) * 0.05 * 0.85 - 0, 0.0);
+            vertices.push((yy + ranX) * 0.075 * 0.95 - 0., (xx + ranY) * 0.25 * 0.85 + 0.5, 0.0);
             i++;
 //             ix++;
         }

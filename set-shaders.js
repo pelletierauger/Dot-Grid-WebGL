@@ -111,7 +111,7 @@ void main() {
     float rando = rand(uvf) * 0.075;
 //     col.r -= rando * 1.;
      col.g *= 0.5;
-    gl_FragColor = vec4((col- rando) * 1.0, 1.0);
+    gl_FragColor = vec4(vec3(1.0), 1.0);
 }
 // endGLSL
     `;
@@ -148,7 +148,7 @@ setDotsShaders = function() {
         center = vec2(gl_Position.x, gl_Position.y);
         center = 512.0 + center * 512.0;
         myposition = vec2(gl_Position.x, gl_Position.y);
-        gl_PointSize = 120.0;
+        gl_PointSize = 640.0;
     }
     // endGLSL
     `;
@@ -188,7 +188,7 @@ setDotsShaders = function() {
         alpha = smoothstep(0.015, 0.0095, dist_squared) * 0.49;
         float rando = rand(pos);
         // gl_FragColor = vec4(1.0, (1.0 - dist_squared * 40.) * 0.6, 0.0, alpha + ((0.12 - dist_squared) * 4.) - (rando * 0.2));
-        gl_FragColor = vec4(0.1 - 1.1 * alpha, 0.01 + 0.9 * alpha, 0.3, (0.9 - dist_squared * 10.0 - (rando * 0.15)) * 0.125 + alpha) * 3.0;
+        gl_FragColor = vec4(0.0 - 0.0 * alpha, 0.0, 0.0, (0.9 - dist_squared * 10.0 - (rando * 0.15)) * 0.005 + alpha) * 3.0;
 //         gl_FragColor = vec4(1.0, 1.0 - dist_squared * 1.0, 0.0, 0.35 - dist_squared - (rando * 0.2));
         // gl_FragColor = vec4(d * 0.001, uv.x, 0.0, 0.25);
     }
