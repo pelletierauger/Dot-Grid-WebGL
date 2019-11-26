@@ -1,0 +1,68 @@
+
+ffmpeg -f image2 -framerate 24 \
+-i /Users/guillaumepelletier/Desktop/Torn/torn.png \
+-filter_complex "[0:0]gblur=sigma=10:steps=1, \
+colorlevels=rimax=0.4:gimax=0.4:bimax=0.4[a]; \
+[0:0][a] blend=all_mode='hardlight':all_opacity=0.25" \
+/Users/guillaumepelletier/Desktop/Torn/torn-smear.png
+
+
+
+[0:0] gblur=sigma=5:steps=1, colorlevels=rimax=0.2:gimax=0.4:bimax=0.4 [a]; \
+[0:0][a] blend=all_mode='hardlight':all_opacity=0.15, noise=alls=15:allf=t+u [b]; \
+[b] colorlevels=rimin=0.0:gimin=0.05:bimin=0.05:rimax=0.95:gimax=0.95:bimax=0.95
+
+
+[0:0] gblur=sigma=20:steps=5, colorlevels=rimax=0.9:gimax=0.9:bimax=0.9 [a]; \
+[0:0][a] blend=all_mode='hardlight':all_opacity=0.5, noise=alls=15:allf=t+u [b]; \
+[b] colorlevels=rimin=0.0:gimin=0.05:bimin=0.05:rimax=0.95:gimax=0.95:bimax=0.95 [c]; \
+[0:0] geq=lum=255*gauss((X/W-0.5)*3)*gauss((Y/H-0.5)*3)/gauss(0)/gauss(0) [d]; \
+[c][d] blend=all_mode='multiply':all_opacity=0.0025 [e]; \
+[e] hue=h=120:s=1
+
+[0:0] gblur=sigma=5:steps=5, colorlevels=rimax=0.9:gimax=0.9:bimax=0.9 [a]; \
+[0:0][a] blend=all_mode='hardlight':all_opacity=0.25, noise=alls=15:allf=t+u [b]; \
+[b] colorlevels=rimin=0.0:gimin=0.05:bimin=0.05:rimax=0.95:gimax=0.95:bimax=0.95 [c]; \
+[0:0] geq=lum=255*gauss((X/W-0.5)*3)*gauss((Y/H-0.5)*3)/gauss(0)/gauss(0) [d]; \
+[c][d] blend=all_mode='multiply':all_opacity=0.25 [e]; \
+[e] hue=h=-160:s=1
+
+
+[0:v][1:v]overlay=0:0:enable='between(t,0,38)'
+
+----------------------------------------------------------------------------------------------
+beau vert, rose et cuivre
+[1:0] colorlevels=rimin=0.0:gimin=0.0:bimin=0.0 [a]; \
+[0:0][a] blend=all_mode='multiply':all_opacity=0.25 [b]; \
+[b] split [c][d]; \
+[c] gblur=sigma=5:steps=1, colorlevels=rimax=0.2:gimax=0.4:bimax=0.4 [c]; \
+[d][c] blend=all_mode='hardlight':all_opacity=0.15, noise=alls=15:allf=t+u [e]; \
+[e] colorlevels=rimin=0.05:gimin=0.15:bimin=0.15:rimax=0.92:gimax=0.92:bimax=0.92, \
+hue=h=160:s=0.75
+
+[1:0] colorlevels=rimin=0.0:gimin=0.0:bimin=0.0 [a]; \
+[0:0][a] blend=all_mode='multiply':all_opacity=0.25 [b]; \
+[b] split [c][d]; \
+[c] gblur=sigma=20:steps=1, colorlevels=rimax=0.2:gimax=0.4:bimax=0.4 [c]; \
+[d][c] blend=all_mode='hardlight':all_opacity=0.15, noise=alls=15:allf=t+u [e]; \
+[e] colorlevels=rimin=0.05:gimin=0.15:bimin=0.15:rimax=0.9:gimax=0.9:bimax=0.9, \
+hue=h=160:s=0.75
+
+
+[1:0] colorlevels=rimin=0.0:gimin=0.0:bimin=0.0 [a]; \
+[0:0][a] blend=all_mode='multiply':all_opacity=0.25 [b]; \
+[b] split [c][d]; \
+[c] gblur=sigma=20:steps=1, colorlevels=rimax=0.2:gimax=0.4:bimax=0.4 [c]; \
+[d][c] blend=all_mode='hardlight':all_opacity=0.15, noise=alls=15:allf=t+u [e]; \
+[e] colorlevels=rimin=0.05:gimin=0.15:bimin=0.15:rimax=0.9:gimax=0.9:bimax=0.9, \
+hue=h=180:s=0.75
+----------------------------------------------------------------------------------------------
+
+vert et bleu royal
+[1:0] colorlevels=rimin=0.0:gimin=0.0:bimin=0.0 [a]; \
+[0:0][a] blend=all_mode='multiply':all_opacity=0.25 [b]; \
+[b] split [c][d]; \
+[c] gblur=sigma=5:steps=1, colorlevels=rimax=0.2:gimax=0.4:bimax=0.4 [c]; \
+[d][c] blend=all_mode='hardlight':all_opacity=0.15, noise=alls=15:allf=t+u [e]; \
+[e] colorlevels=rimin=0.05:gimin=0.15:bimin=0.15:rimax=0.9:gimax=0.9:bimax=0.9, \
+hue=h=220:s=0.75
