@@ -26,7 +26,9 @@ function drawBG() {
 
 // logJavaScriptConsole(120 * 120);
 
+drawCount = 0;
 grow = 1e-6;
+escal = 100;
 drawDots = function() {
     vertices = [];
     let amountX = 50;
@@ -43,8 +45,8 @@ drawDots = function() {
             let xx = x + pow(cos(y * 0.5 + t * 0.025), 700) * y * x * 200.5;
             let yy = y + pow(sin(x * 0.5 + t * 0.025), 700) * y * x * 200.5;
             //             xx += cos(oy * 10) * sin(oy * 10)2
-            xx = lerp(x, xx, grow);
-            yy = lerp(y, yy, grow);
+            xx = lerp(x, xx, grow) + 4.5;
+            yy = lerp(y, yy, grow) - (escal * pow(x + 1, 6));
             //             yy += cos(oy * 10) * sin(oy * 10);
             if (i == 0) {
                 oriX = xx;
@@ -53,7 +55,11 @@ drawDots = function() {
             i++;
         }
     }
-    grow *= 1.01;
+    if (escal > 1e-12) {
+        escal *= 0.95;
+    } else {
+        grow *= 1.01;
+    }
     // Create an empty buffer object to store the vertex buffer
     // var vertex_buffer = gl.createBuffer();
     //Bind appropriate array buffer to it
@@ -79,4 +85,4 @@ drawDots = function() {
     // Draw the triangle
     gl.drawArrays(gl.POINTS, 0, amountX * amountY);
 }
-lo(grow);
+// lo(grow);
