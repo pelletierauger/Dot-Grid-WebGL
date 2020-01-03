@@ -40,8 +40,8 @@ drawDots = function() {
 //             let oy = y - 100;
 //             let dx = abs(cos(x) * 0.1 - Math.tan(t * 0.0025));
 //             let dy = abs(sin(y) * 0.1 - Math.tan(t * 0.0025));
-            let xx = x + (Math.pow(Math.cos(y + t * 0.025), 70) + Math.sin(y * 0.1 * Math.sin(t)) + Math.cos(x * 0.1 * Math.sin(t))) * 2.5;
-            let yy = y + (Math.pow(Math.sin(x + t * 0.025), 70) + Math.sin(y * 0.1 * Math.sin(t)) + Math.cos(x * 0.1 * Math.sin(t))) * 2.5;
+            let xx = x + (Math.pow(Math.cos(y * 0.1 + t * 0.025), 70) * Math.sin(y * 0.1 * Math.sin(t)) + Math.cos(x * 0.1 * Math.sin(t))) * 4.5;
+            let yy = y + (Math.pow(Math.sin(x * 0.1 + t * 0.025), 70) * Math.sin(y * 0.1 * Math.sin(t)) + Math.cos(x * 0.1 * Math.sin(t))) * 4.5;
             //             xx += cos(oy * 10) * sin(oy * 10)2
 //             xx = lerp(x, xx, grow);
 //             yy = lerp(y, yy, grow);
@@ -49,7 +49,7 @@ drawDots = function() {
             if (i == 0) {
                 oriX = xx;
             }
-            vertices.push((xx - 0) * 0.05 * 1.0 - 1.2, yy * 0.05 * 1.0 - 1.3, 0.0);
+            vertices.push((xx - 0) * 0.05 * 1.0 - 1.2, yy * 0.05 * 1.0 - 1.2, 0.0);
             i++;
         }
     }
