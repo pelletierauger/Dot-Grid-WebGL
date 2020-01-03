@@ -36,15 +36,15 @@ drawDots = function() {
     let i = 0;
     for (let x = 0; x < amountX; x += 1) {
         for (let y = 0; y < amountY; y += 1) {
-            let ox = x - 100;
-            let oy = y - 100;
-            let dx = abs(cos(x) * 0.01 - 25);
-            let dy = abs(sin(y) * 0.01 - 25);
-            let xx = x + pow(cos(y * 0.5 + t * 0.025), 700) * y * x * 200.5;
-            let yy = y + pow(sin(x * 0.5 + t * 0.025), 700) * y * x * 200.5;
+//             let ox = x - 100;
+//             let oy = y - 100;
+//             let dx = abs(cos(x) * 0.1 - Math.tan(t * 0.0025));
+//             let dy = abs(sin(y) * 0.1 - Math.tan(t * 0.0025));
+            let xx = x + (Math.pow(Math.cos(y + t * 0.025), 70) + Math.sin(y * 0.1 * Math.sin(t)) + Math.cos(x * 0.1 * Math.sin(t))) * 2.5;
+            let yy = y + (Math.pow(Math.sin(x + t * 0.025), 70) + Math.sin(y * 0.1 * Math.sin(t)) + Math.cos(x * 0.1 * Math.sin(t))) * 2.5;
             //             xx += cos(oy * 10) * sin(oy * 10)2
-            xx = lerp(x, xx, grow);
-            yy = lerp(y, yy, grow);
+//             xx = lerp(x, xx, grow);
+//             yy = lerp(y, yy, grow);
             //             yy += cos(oy * 10) * sin(oy * 10);
             if (i == 0) {
                 oriX = xx;
