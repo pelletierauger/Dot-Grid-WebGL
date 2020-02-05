@@ -36,9 +36,9 @@ console.log("Yurp");
 outer = 0;
 drawDots = function() {
     vertices = [];
-    let amountX = 50;
-    let amountY = 50;
-    let amountOfFrames = 240;
+    let amountX = 15;
+    let amountY = 32;
+    let amountOfFrames = 120;
     let inc = Math.PI * 2 / amountOfFrames;
     // let inner = 0;
     let t = (frameCount) * 0.005;
@@ -58,13 +58,14 @@ drawDots = function() {
             let yy = y;
             let oX = oldArr[i].x;
             let oY = oldArr[i].y;
-            xx += tan(cos(oY * 0.35)) * 1.5;
-            yy += tan(sin((oY * 0.125 + oX * 1.5 + oY * 0.5) * 0.35 + outer)) * 1.5;
+            xx += tan(cos(oY * 0.035) * 1) * 1.5;
+            yy += tan(sin((oY * 0.5 + oX * 1.5 + oY * 0.5) * 0.35 + outer)) * 1.5;
+            xx += sin(oY * 0.25);
             newArr.push({ x: xx, y: yy });
             //             
             let ranX = Math.random() * 0.025 * 0.5;
             let ranY = Math.random() * 0.025 * 0.5;
-            vertices.push((xx * 16 / 9) * 0.05 * 1.0 - 1.3, (yy) * 0.05 * 1.0 - 1.3, 0.0);
+            vertices.push((xx * 16 / 9) * 0.05 * 1.2 - 0.94, (yy) * 0.05 * 1.0 - 0.8, 0.0);
             i++;
             //             console.log(i);
             //             ix++;
