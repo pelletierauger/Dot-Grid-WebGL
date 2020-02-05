@@ -72,9 +72,9 @@ void main() {
 //     uv.x += 0.25;
 //     uv.y += 0.2;
 //     uv.x += 3.5;
-    uv *= 0.5;
+    uv *= 0.25;
     float d = length(uv);
-    float t = time * 0.125 * 0.06125 * 0.5;
+    float t = (2050.) * 0.125 * 0.06125 * 0.5;
     t *= 2.;
 //     uv.x += sin(t * 10000.) * 0.0025;
 //     uv.y += sin(t * 15000.) * 0.0025;
@@ -148,7 +148,7 @@ setDotsShaders = function() {
         center = vec2(gl_Position.x, gl_Position.y);
         center = 512.0 + center * 512.0;
         myposition = vec2(gl_Position.x, gl_Position.y);
-        gl_PointSize = 120.0;
+        gl_PointSize = 240.0;
     }
     // endGLSL
     `;

@@ -1,7 +1,7 @@
 let looping = true;
 let keysActive = true;
 let socket, cnvs, ctx, canvasDOM;
-let fileName = "./frames/sketch";
+let fileName = "./frames/diagonal-hills-4/sketch";
 // a shader variable
 let gl;
 let shaderProgram;
@@ -19,8 +19,8 @@ let vertex_buffer;
 function setup() {
     socket = io.connect('http://localhost:8080');
     // shaders require WEBGL mode to work
-    pixelDensity(1);
-    cnvs = createCanvas(windowWidth, windowWidth * 9 / 16, WEBGL);
+    // pixelDensity(1);
+    cnvs = createCanvas(windowWidth * 9 / 16, windowWidth * 9 / 16, WEBGL);
     canvasDOM = document.getElementById('defaultCanvas0');
     gl = canvas.getContext('webgl');
 
@@ -62,6 +62,9 @@ draw = function() {
     //     gl.uniform1f(time, drawCount);
     //     drawBG();
     drawCount += drawIncrement;
+    if (exporting && frameCount > 150 && frameCount < 391) {
+        frameExport();
+    }
 }
 
 // function windowResized() {

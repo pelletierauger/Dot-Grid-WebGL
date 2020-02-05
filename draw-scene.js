@@ -28,23 +28,28 @@ function drawBG() {
 
 
 oldArr = [];
-for (let i = 0; i < 50 * 50; i++) {
-    oldArr.push({x: 1, y: 1});
+for (let i = 0; i <  50 * 50; i++) {
+    oldArr.push({ x: 1, y: 1 });
 }
 // oldArr = oldArr.fill({x: 1, y: 1}, 0, 50 * 50);
 console.log("Yurp");
+outer = 0;
 drawDots = function() {
     vertices = [];
     let amountX = 50;
     let amountY = 50;
+    let amountOfFrames = 240;
+    let inc = Math.PI * 2 / amountOfFrames;
+    // let inner = 0;
     let t = (frameCount) * 0.005;
     let i = 0;
-    let ix = 1, iy = 1;
+    let ix = 1,
+        iy = 1;
     let sosc = function(i, min, max) {
-      return map(Math.sin(i), -1, 1, min, max);
+        return map(Math.sin(i), -1, 1, min, max);
     };
     let cosc = function(i, min, max) {
-      return map(Math.cos(i), -1, 1, min, max);
+        return map(Math.cos(i), -1, 1, min, max);
     };
     newArr = [];
     for (let x = 0; x < amountX; x += 1) {
@@ -53,17 +58,21 @@ drawDots = function() {
             let yy = y;
             let oX = oldArr[i].x;
             let oY = oldArr[i].y;
-            xx += tan(cos(oY * 0.35 + t * 2)) * 1.5;
-            yy += tan(sin((oY * 0.125 + oX * 1.5 + oY * 0.5 + t * 10) * 0.35 + t * 2)) * 1.5;
-            newArr.push({x: xx, y: yy});
-//             
+            xx += tan(cos(oY * 0.35)) * 1.5;
+            yy += tan(sin((oY * 0.125 + oX * 1.5 + oY * 0.5) * 0.35 + outer)) * 1.5;
+            newArr.push({ x: xx, y: yy });
+            //             
             let ranX = Math.random() * 0.025 * 0.5;
             let ranY = Math.random() * 0.025 * 0.5;
-            vertices.push((xx + ranX) * 0.05 * 1.0 - 1.3, (yy + ranY) * 0.05 * 1.0 - 1.3, 0.0);
+            vertices.push((xx * 16 / 9) * 0.05 * 1.0 - 1.3, (yy) * 0.05 * 1.0 - 1.3, 0.0);
             i++;
-//             console.log(i);
-//             ix++;
+            //             console.log(i);
+            //             ix++;
         }
+    }
+    outer += inc;
+    if (outer > (Math.PI * 2)) {
+        outer = 0;
     }
     oldArr = newArr;
     // Create an empty buffer object to store the vertex buffer
