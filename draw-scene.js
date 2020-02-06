@@ -64,7 +64,7 @@ drawDots = function() {
             //             
             let ranX = Math.random() * 0.025 * 0.5;
             let ranY = Math.random() * 0.025 * 0.5;
-            vertices.push((xx * 16 / 9) * 0.05 * 1.0 - 1.3, (yy) * 0.05 * 1.0 - 1.3, 0.0);
+            vertices.push((xx * 16 / 9) * 0.05 * 1.0 - 1.3, (yy) * 0.05 * 1.0 - 1.25, 0.0);
             i++;
             //             console.log(i);
             //             ix++;

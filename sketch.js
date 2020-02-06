@@ -1,7 +1,7 @@
 let looping = true;
 let keysActive = true;
 let socket, cnvs, ctx, canvasDOM;
-let fileName = "./frames/diagonal-hills-4/sketch";
+let fileName = "./frames/diagonal-hills-4b/sketch";
 // a shader variable
 let gl;
 let shaderProgram;
