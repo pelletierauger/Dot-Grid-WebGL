@@ -1,3 +1,44 @@
 ffmpeg -f image2 -framerate 24 -i ./frames/diagonal-hills-4/sketch-%05d.png -c:v libx264 -pix_fmt yuv420p -shortest ./video-renders/hills.mp4
 
-ffmpeg -f image2 -framerate 24 -i ./frames/diagonal-hills-4/sketch-%05d.png -c:v libx264 -pix_fmt yuv420p -shortest ./video-renders/hills.mp4
+ffmpeg -f image2 -framerate 24 -i ./frames/diagonal-hills-4/sketch-%05d.png -c:v libx264 -pix_fmt yuv420p -filter:v "crop=970:970:0:470" ./video-renders/hills-crop.mp4
+
+ffmpeg -f image2 -framerate 24 -i ./frames/diagonal-hills-4/sketch-%05d.png -filter:v "crop=970:970:0:470" -vf palettegen palette.png
+
+ffmpeg -f image2 -framerate 24 -i ./frames/diagonal-hills-4/sketch-%05d.png -i palette.png -filter:v "crop=970:970:0:470" -lavfi paletteuse hills-crop.gif
+
+
+ffmpeg -f image2 -framerate 24 -i ./frames/diagonal-hills-4/sketch-%05d.png -filter:v "crop=970:970:0:470" ./frames/diagonal-hills-4-crop/sketch-%05d.png
+
+ffmpeg -f image2 -framerate 24 -i ./frames/diagonal-hills-4-crop/sketch-%05d.png -vf palettegen palette.png
+
+ffmpeg -f image2 -framerate 24 -i ./frames/diagonal-hills-4-crop/sketch-%05d.png -i palette.png -lavfi paletteuse -s 480x480 ./video-renders/hills-crop-480x480.gif
+
+gifsicle -O3 --lossy=250 -o ./video-renders/hills-crop-480x480-lossy250.gif ./video-renders/hills-crop-480x480.gif
+
+
+ffmpeg -f image2 -framerate 24 -i ./frames/diagonal-hills-4-crop/sketch-%05d.png -c:v libx264 -pix_fmt yuv420p  -filter_complex "[0:0] colorbalance=bs=.0:bm=.0:bh=.125" \
+-color_range 1 -colorspace 1 -color_primaries 1 -color_trc 1 -s 2560x1440 \
+./video-renders/hills-crop-colorspace.mp4
+
+
+
+
+ffmpeg -f image2 -framerate 24 -i /Volumes/Volumina/frames/lueurs/purple-swirl-flicker/purple-swirl-flicker-%05d.png \
+-c:v libx264 -x264-params "keyint=15:no-deblock=1" \
+-pix_fmt yuv420p -sws_flags spline+accurate_rnd+full_chroma_int \
+-filter_complex "[0:0]gblur=sigma=7:steps=1, \
+colorlevels=rimax=0.7:gimax=0.5:bimax=0.5[blur1]; \
+[0:0]gblur=sigma=50:steps=1, \
+colorlevels=rimax=0.7:gimax=0.5:bimax=0.5[blur2]; \
+[0:0][blur1] blend=all_mode='hardlight':all_opacity=0.5[comp1]; \
+[comp1][blur2] blend=all_mode='hardlight':all_opacity=0.25[comp2]; \
+[comp2] colorspace=bt709:iall=bt601-6-625:fast=1, \
+colorbalance=bs=.0:bm=.0:bh=.125 [comp3]; \
+[comp3] hue=h=0:s=0.65, colorlevels=rimax=0.7:gimax=0.7:bimax=0.7" \
+-color_range 1 -colorspace 1 -color_primaries 1 -color_trc 1 -s 2560x1440 -shortest /Volumes/Volumina/video-renders/lueurs/purple-swirl-flicker-big-shine.mp4
+
+
+
+ffmpeg -f image2 -framerate 24 -i ./frames/diagonal-hills-4b/sketch-%05d.png -filter:v "crop=970:970:0:470" ./frames/diagonal-hills-4b-crop/sketch-%05d.png
+
+ffmpeg -f image2 -framerate 24 -i ./frames/diagonal-hills-4b-crop/sketch-%05d.png -c:v libx264 -pix_fmt yuv420p ./video-renders/hillsb.mp4
