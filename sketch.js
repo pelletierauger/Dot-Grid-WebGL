@@ -1,7 +1,7 @@
 let looping = true;
 let keysActive = true;
 let socket, cnvs, ctx, canvasDOM;
-let fileName = "./frames/diagonal-hills-4b/sketch";
+let fileName = "/Volumes/Volumina/frames/wtwf/diagonal-hills-4b-no-chaos/sketch";
 // a shader variable
 let gl;
 let shaderProgram;
@@ -62,7 +62,7 @@ draw = function() {
     //     gl.uniform1f(time, drawCount);
     //     drawBG();
     drawCount += drawIncrement;
-    if (exporting && frameCount > 150 && frameCount < 391) {
+    if (exporting) {
         frameExport();
     }
 }

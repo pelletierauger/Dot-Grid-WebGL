@@ -58,8 +58,8 @@ drawDots = function() {
             let yy = y;
             let oX = oldArr[i].x;
             let oY = oldArr[i].y;
-            xx += tan(cos(oY * 0.35)) * 1.5;
-            yy += tan(sin((oY * 0.125 + oX * 1.5 + oY * 0.5) * 0.35 + outer)) * 1.5;
+            xx += tan(cos(y * 0.35)) * 1.5;
+            yy += tan(sin((y * 0.125 + x * 1.5 + y * 0.5) * 0.35 + outer)) * 1.5;
             newArr.push({ x: xx, y: yy });
             //             
             let ranX = Math.random() * 0.025 * 0.5;

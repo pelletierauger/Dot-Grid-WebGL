@@ -42,3 +42,16 @@ colorbalance=bs=.0:bm=.0:bh=.125 [comp3]; \
 ffmpeg -f image2 -framerate 24 -i ./frames/diagonal-hills-4b/sketch-%05d.png -filter:v "crop=970:970:0:470" ./frames/diagonal-hills-4b-crop/sketch-%05d.png
 
 ffmpeg -f image2 -framerate 24 -i ./frames/diagonal-hills-4b-crop/sketch-%05d.png -c:v libx264 -pix_fmt yuv420p ./video-renders/hillsb.mp4
+
+
+ffmpeg -f image2 -framerate 24 -i /Volumes/Volumina/frames/wtwf/diagonal-hills-4b-stabilize/sketch-%05d.png -filter:v "crop=970:970:0:470" /Volumes/Volumina/frames/wtwf/diagonal-hills-4b-stabilize-crop/sketch-%05d.png
+
+ffmpeg -f image2 -framerate 24 -i /Volumes/Volumina/frames/wtwf/diagonal-hills-4b-stabilize-crop/sketch-%05d.png -c:v libx264 -pix_fmt yuv420p /Volumes/Volumina/video-renders/wtwf/diagonal-hills-4b-stabilize-crop.mp4
+
+---------------------------------------------------------------------------------------------------
+
+
+
+ffmpeg -f image2 -framerate 24 -i /Volumes/Volumina/frames/wtwf/diagonal-hills-4b-no-chaos/sketch-%05d.png -filter:v "crop=970:970:0:470" /Volumes/Volumina/frames/wtwf/diagonal-hills-4b-no-chaos-crop/sketch-%05d.png
+
+ffmpeg -f image2 -framerate 24 -i /Volumes/Volumina/frames/wtwf/diagonal-hills-4b-no-chaos-crop/sketch-%05d.png -c:v libx264 -pix_fmt yuv420p /Volumes/Volumina/video-renders/wtwf/diagonal-hills-4b-no-chaos-crop.mp4
