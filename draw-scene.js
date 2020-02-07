@@ -28,24 +28,28 @@ function drawBG() {
 
 
 oldArr = [];
-for (let i = 0; i < 50 * 50; i++) {
-    oldArr.push({x: 1, y: 1});
+for (let i = 0; i <  50 * 50; i++) {
+    oldArr.push({ x: 1, y: 1 });
 }
 // oldArr = oldArr.fill({x: 1, y: 1}, 0, 50 * 50);
 console.log("Yurp");
 iter = 0;
+gt = 0;
 drawDots = function() {
     vertices = [];
     let amountX = 50;
     let amountY = 50;
-    let t = (frameCount) * 0.015 * 0.25;
+    let amountOfFrames = 240 * 1;
+    let inc = Math.PI * 2 / amountOfFrames;
+    let t = gt;
     let i = 0;
-    let ix = 1, iy = 1;
+    let ix = 1,
+        iy = 1;
     let sosc = function(i, min, max) {
-      return map(Math.sin(i), -1, 1, min, max);
+        return map(Math.sin(i), -1, 1, min, max);
     };
     let cosc = function(i, min, max) {
-      return map(Math.cos(i), -1, 1, min, max);
+        return map(Math.cos(i), -1, 1, min, max);
     };
     newArr = [];
     for (let x = 0; x < amountX; x += 1) {
@@ -58,21 +62,27 @@ drawDots = function() {
                 oX = x;
                 oY = y;
             } else {
-                let ix = oldArr[i].x, iy = oldArr[i].y;
-                oX = x + cos(ix * 0.5 + t * 8) * sin(ix * 0.5 + t * 40) * cos(iy * 0.5 + t * 8) * 2;
-                oY = y + sin(iy * 0.5 + t * 8) * sin(ix * 0.5 + t * 40) * cos(iy * 0.5 + t * 8) * 2;
+                let ix = oldArr[i].x,
+                    iy = oldArr[i].y;
+                oX = x + cos(ix * 0.5 + t) * sin(ix * 0.5 + t) * cos(iy * 0.5 + t) * 2;
+                oY = y + sin(iy * 0.5 + t) * sin(ix * 0.5 + t) * cos(iy * 0.5 + t) * 2;
             }
             xx = oX;
             yy = oY;
-            newArr.push({x: xx, y: yy});
-//             
+            newArr.push({ x: xx, y: yy });
+            //             
             let ranX = Math.random() * 0.025 * 0.5;
             let ranY = Math.random() * 0.025 * 0.5;
-            vertices.push((xx + ranX) * 0.05 * 1.0 - 1.3, (yy + ranY) * 0.05 * 1.0 - 1.3, 0.0);
+            vertices.push(((xx + ranX) * 0.05 * 1.0 - 1.3) * 16 / 9, (yy + ranY) * 0.05 * 1.0 - 1.3, 0.0);
             i++;
-//             console.log(i);
-//             ix++;
+            //             console.log(i);
+            //             ix++;
         }
+    }
+    gt += inc;
+    if (gt > (Math.PI * 2)) {
+        gt = 0;
+        logJavaScriptConsole("240!");
     }
     iter++;
     oldArr = newArr;
