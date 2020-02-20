@@ -114,7 +114,7 @@ void main() {
      col.g *= 0.5;
     gl_FragColor = vec4((col- rando) * 1.0, 1.0);
     gl_FragColor = gl_FragColor.gbra;
-    gl_FragColor = gl_FragColor.bgra;
+//     gl_FragColor = gl_FragColor.bgra;
         gl_FragColor.rgb = vec3(0.5) - gl_FragColor.rgb;
 }
 // endGLSL
@@ -198,6 +198,7 @@ setDotsShaders = function() {
         // gl_FragColor = vec4(d * 0.001, uv.x, 0.0, 0.25);
             gl_FragColor = gl_FragColor.bgba;
         gl_FragColor.rgb = vec3(0.5) - gl_FragColor.rgb;
+//         gl_FragColor = gl_FragColor.ggra;
 //         gl_FragColor.a = 1.0 - gl_FragColor.a;
 //                 gl_FragColor.b *= 0.75;
     }
