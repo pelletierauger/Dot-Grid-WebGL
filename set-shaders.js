@@ -70,8 +70,8 @@ void main() {
 //      uv *= 1.2;
     vec2 uvf = uv * 10.;
 //     uv.x += 0.25;
-//     uv.y += -0.2;
-//     uv.x += 0.5;
+//     uv.y += 0.2;
+    uv.x += -1.5;
 //     uv *= 0.5;
 //     uv *= 2.0;
     float d = length(uv);
@@ -113,6 +113,8 @@ void main() {
 //     col.r -= rando * 1.;
      col.g *= 0.5;
     gl_FragColor = vec4((col- rando) * 1.0, 1.0);
+    gl_FragColor = gl_FragColor.gbra;
+//     gl_FragColor = gl_FragColor.bgra;
 }
 // endGLSL
     `;
@@ -136,6 +138,7 @@ void main() {
     time = gl.getUniformLocation(shaderProgram, "time");
 }
 // setBGShaders();
+// redraw();
 
 
 setDotsShaders = function() {
@@ -149,7 +152,7 @@ setDotsShaders = function() {
         center = vec2(gl_Position.x, gl_Position.y);
         center = 512.0 + center * 512.0;
         myposition = vec2(gl_Position.x, gl_Position.y);
-        gl_PointSize = 120.0;
+        gl_PointSize = 200.0;
     }
     // endGLSL
     `;
@@ -192,6 +195,8 @@ setDotsShaders = function() {
         gl_FragColor = vec4(0.1 - 1.1 * alpha, 0.01 + 0.9 * alpha, 0.3, (0.9 - dist_squared * 10.0 - (rando * 0.15)) * 0.125 + alpha) * 3.0;
 //         gl_FragColor = vec4(1.0, 1.0 - dist_squared * 1.0, 0.0, 0.35 - dist_squared - (rando * 0.2));
         // gl_FragColor = vec4(d * 0.001, uv.x, 0.0, 0.25);
+            gl_FragColor = gl_FragColor.brga;
+//                 gl_FragColor.b *= 0.75;
     }
     // endGLSL
     `;
@@ -224,6 +229,7 @@ setDotsShaders = function() {
     gl.enableVertexAttribArray(coord);
 }
 setDotsShaders();
+// redraw();
 
 setOverlayShaders = function() {
     /*======================= Shaders =======================*/
