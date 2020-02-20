@@ -47,10 +47,10 @@ drawDots = function() {
             //             yy += map(sin(y + t), -1, 1, 0.5, 0.4);
             let m = 0.00000125;
             let n = i * i * m;
-            xx += (cos((i - 0) * 0.5 + n + t)) * 1.5;
-            yy += (cos(iy * 0.45 + n + t)) * 1.5;
-            yy += (sin(ix * 0.45 + n + t)) * 1.5;
-            yy += (sin(ix * 0.45 + n + t)) * 1.5;
+            xx += (cos((i - 0) * 0.5 + n + t)) * 0.5;
+            yy += (cos(iy * 0.45 + n + t)) * 0.5;
+//             yy += (sin(ix * 0.45 + n + t)) * 1.5;
+//             yy += (sin(ix * 0.45 + n + t)) * 1.5;
             //             xx += cos((ix - 45) * (iy - 50) * 1.5e-2 + t);
             //             yy += sin(ix * (iy - 50) * 1.5e-2 + t);
             if (i == 0) {
@@ -60,7 +60,7 @@ drawDots = function() {
             iy = yy;
             let ranX = Math.random() * 0.025 * 0.5;
             let ranY = Math.random() * 0.025 * 0.5;
-            vertices.push(((xx - 0 + ranX) * 0.05 * 1.0 - 1.2) * 2, ((yy + ranY) * 0.05 * 1.0 - 1.3) * 2, 0.0);
+            vertices.push((xx * 0.15 * 1.0 - 1.2) * 2, (yy * 0.05 * 1.0 - 1.3) * 2, 0.0);
             i++;
             //             ix++;
         }

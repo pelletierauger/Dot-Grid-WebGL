@@ -196,6 +196,7 @@ setDotsShaders = function() {
 //         gl_FragColor = vec4(1.0, 1.0 - dist_squared * 1.0, 0.0, 0.35 - dist_squared - (rando * 0.2));
         // gl_FragColor = vec4(d * 0.001, uv.x, 0.0, 0.25);
             gl_FragColor = gl_FragColor.brga;
+        gl_FragColor.rgb = vec3(1.0) - gl_FragColor.rgb;
 //                 gl_FragColor.b *= 0.75;
     }
     // endGLSL
