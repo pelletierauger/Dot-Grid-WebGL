@@ -115,6 +115,7 @@ void main() {
     gl_FragColor = vec4((col- rando) * 1.0, 1.0);
     gl_FragColor = gl_FragColor.gbra;
     gl_FragColor = gl_FragColor.bgra;
+        gl_FragColor.rgb = vec3(0.5) - gl_FragColor.rgb;
 }
 // endGLSL
     `;
@@ -195,8 +196,8 @@ setDotsShaders = function() {
         gl_FragColor = vec4(0.1 - 1.1 * alpha, 0.01 + 0.9 * alpha, 0.3, (0.9 - dist_squared * 10.0 - (rando * 0.15)) * 0.125 + alpha) * 3.0;
 //         gl_FragColor = vec4(1.0, 1.0 - dist_squared * 1.0, 0.0, 0.35 - dist_squared - (rando * 0.2));
         // gl_FragColor = vec4(d * 0.001, uv.x, 0.0, 0.25);
-            gl_FragColor = gl_FragColor.brga;
-        gl_FragColor.rgb = vec3(1.0) - gl_FragColor.rgb;
+            gl_FragColor = gl_FragColor.bgba;
+        gl_FragColor.rgb = vec3(0.5) - gl_FragColor.rgb;
 //         gl_FragColor.a = 1.0 - gl_FragColor.a;
 //                 gl_FragColor.b *= 0.75;
     }
@@ -231,7 +232,7 @@ setDotsShaders = function() {
     gl.enableVertexAttribArray(coord);
 }
 setDotsShaders();
-// redraw();
+redraw();
 
 setOverlayShaders = function() {
     /*======================= Shaders =======================*/
