@@ -1,7 +1,7 @@
 let looping = true;
 let keysActive = true;
 let socket, cnvs, ctx, canvasDOM;
-let fileName = "/Volumes/Volumina/frames/wtwf/diagonal-hills-4b-no-chaos/sketch";
+let fileName = "/Volumes/Volumina/frames/wtwf/harmonious-eggs-2b/sketch";
 // a shader variable
 let gl;
 let shaderProgram;
@@ -20,7 +20,7 @@ function setup() {
     socket = io.connect('http://localhost:8080');
     // shaders require WEBGL mode to work
     // pixelDensity(1);
-    cnvs = createCanvas(windowWidth * 9 / 16, windowWidth * 9 / 16, WEBGL);
+    cnvs = createCanvas(485, 485, WEBGL);
     canvasDOM = document.getElementById('defaultCanvas0');
     gl = canvas.getContext('webgl');
 

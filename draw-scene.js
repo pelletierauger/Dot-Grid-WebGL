@@ -40,41 +40,31 @@ drawDots = function() {
     let amountY = 50;
     let amountOfFrames = 240;
     let inc = Math.PI * 2 / amountOfFrames;
-    // let inner = 0;
-    let t = (frameCount) * 0.005;
+    let t = outer;
+    let a = 0.005 * sin(t * 0.05);
     let i = 0;
-    let ix = 1,
-        iy = 1;
-    let sosc = function(i, min, max) {
-        return map(Math.sin(i), -1, 1, min, max);
-    };
-    let cosc = function(i, min, max) {
-        return map(Math.cos(i), -1, 1, min, max);
-    };
-    newArr = [];
     for (let x = 0; x < amountX; x += 1) {
         for (let y = 0; y < amountY; y += 1) {
-            let xx = x;
-            let yy = y;
-            let oX = oldArr[i].x;
-            let oY = oldArr[i].y;
-            xx += tan(cos(y * 0.35)) * 1.5;
-            yy += tan(sin((y * 0.125 + x * 1.5 + y * 0.5) * 0.35 + outer)) * 1.5;
-            newArr.push({ x: xx, y: yy });
-            //             
-            let ranX = Math.random() * 0.025 * 0.5;
-            let ranY = Math.random() * 0.025 * 0.5;
-            vertices.push((xx * 16 / 9) * 0.05 * 1.0 - 1.3, (yy) * 0.05 * 1.0 - 1.25, 0.0);
+            let ox = x - 7;
+            let oy = y + 31;
+            let dx = cos(ox * 0.85 * 0.5);
+            let dy = sin(oy * 0.5 * 0.5);
+            let xx = x + pow(map(cos((sin(dx + dy)) + t), -1, 1, 0, 2), 6) * 0.125;
+            let yy = y + pow(map(sin((sin(dx + dy)) + t), -1, 1, 0, 2), 6) * 0.125;
+            //             xx += map(cos(x * t), -1, 1, 0.5, 0.4) * 2;
+            //             yy += map(sin(y * t), -1, 1, 0.5, 0.4) * 2;
+            if (i == 0) {
+                oriX = xx;
+            }
+            vertices.push((xx) * 0.05 * 1.8 * 1.4 - 2.645, (yy) * 0.05 * 1.3 * 1.0 - 1.65, 0.0);
             i++;
-            //             console.log(i);
-            //             ix++;
         }
     }
     outer += inc;
     if (outer > (Math.PI * 2)) {
         outer = 0;
     }
-    oldArr = newArr;
+    // oldArr = newArr;
     // Create an empty buffer object to store the vertex buffer
     // var vertex_buffer = gl.createBuffer();
     //Bind appropriate array buffer to it
@@ -100,3 +90,4 @@ drawDots = function() {
     // Draw the triangle
     gl.drawArrays(gl.POINTS, 0, amountX * amountY);
 }
+// redraw();
