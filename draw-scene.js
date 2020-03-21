@@ -49,8 +49,8 @@ drawDots = function() {
             let oy = y;
             let dx = cos(x * 0.8 * 0.5);
             let dy = sin(y * 0.5 * 0.5);
-            let xx = x + pow(map(cos(dx + dy + t), -1, 1, 0, 1), 12) * 2;
-            let yy = y + pow(map(sin(dx + t), -1, 1, 0, 1), 12) * 0;
+            let xx = x + pow(map(cos(sin(dx * 20) * 2 + dy + t), -1, 1, 0, 1), 12) * 1;
+            let yy = y + pow(map(sin(dx + t), -1, 1, 0, 2), 12) * 0;
 //             xx += map(cos(x * t), -1, 1, 0.5, 0.4) * 2;
 //             yy += map(sin(y * t), -1, 1, 0.5, 0.4) * 2;
             vertices.push(xx * 0.135 * 0.95 - 2.045 + 0.51, yy * 0.06 * 1.0 - 1.85, 0.0);
