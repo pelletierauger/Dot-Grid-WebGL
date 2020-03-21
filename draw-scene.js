@@ -33,12 +33,14 @@ for (let i = 0; i <  50 * 50; i++) {
 }
 // oldArr = oldArr.fill({x: 1, y: 1}, 0, 50 * 50);
 console.log("Yurp");
-outer = 0;
+outer = Math.PI;
 drawDots = function() {
     vertices = [];
     let amountX = 50;
     let amountY = 50;
-    let t = (frameCount + 120800) * 0.005;
+    let amountOfFrames = 120;
+    let inc = Math.PI * 2 / amountOfFrames;
+    let t = outer;
     let a = 0.005 * sin(t * 0.05);
     let i = 0;
     for (let x = 0; x < amountX; x += 1) {
@@ -47,12 +49,16 @@ drawDots = function() {
             let oy = y;
             let dx = cos(x * 0.8 * 0.5);
             let dy = sin(y * 0.5 * 0.5);
-            let xx = x + pow(map(cos(dx + dy + t * 6), -1, 1, 0, 1), 12) * 2;
-            let yy = y + pow(map(sin(dx + t * 6), -1, 1, 0, 1), 12) * 2;
+            let xx = x + pow(map(cos(dx + dy + t), -1, 1, 0, 1), 12) * 2;
+            let yy = y + pow(map(sin(dx + t), -1, 1, 0, 1), 12) * 0;
 //             xx += map(cos(x * t), -1, 1, 0.5, 0.4) * 2;
 //             yy += map(sin(y * t), -1, 1, 0.5, 0.4) * 2;
             vertices.push(xx * 0.135 * 0.95 - 2.045 + 0.51, yy * 0.06 * 1.0 - 1.85, 0.0);
         }
+    }
+    outer += inc;
+    if (outer > (Math.PI * 2)) {
+        outer = 0;
     }
     // oldArr = newArr;
     // Create an empty buffer object to store the vertex buffer

@@ -55,3 +55,46 @@ ffmpeg -f image2 -framerate 24 -i /Volumes/Volumina/frames/wtwf/diagonal-hills-4
 ffmpeg -f image2 -framerate 24 -i /Volumes/Volumina/frames/wtwf/diagonal-hills-4b-no-chaos/sketch-%05d.png -filter:v "crop=970:970:0:470" /Volumes/Volumina/frames/wtwf/diagonal-hills-4b-no-chaos-crop/sketch-%05d.png
 
 ffmpeg -f image2 -framerate 24 -i /Volumes/Volumina/frames/wtwf/diagonal-hills-4b-no-chaos-crop/sketch-%05d.png -c:v libx264 -pix_fmt yuv420p /Volumes/Volumina/video-renders/wtwf/diagonal-hills-4b-no-chaos-crop.mp4
+
+
+
+ffmpeg -f image2 -framerate 24 -i /Volumes/Volumina/frames/wtwf/new-egg/sketch-%05d.png -i  -lavfi paletteuse -s 480x480 ./video-renders/hills-crop-480x480.gif
+
+gifsicle -O3 --lossy=250 -o ./video-renders/hills-crop-480x480-lossy250.gif ./video-renders/hills-crop-480x480.gif
+
+
+
+ffmpeg -f image2 -framerate 24 -i /Volumes/Volumina/frames/wtwf/new-egg/sketch-%05d.png -vf palettegen /Volumes/Volumina/frames/wtwf/new-egg-palette.png
+
+
+
+ffmpeg -f image2 -framerate 24 -i /Volumes/Volumina/frames/wtwf/new-egg/sketch-%05d.png -i /Volumes/Volumina/frames/wtwf/new-egg-palette.png -lavfi paletteuse /Volumes/Volumina/video-renders/wtwf/new-egg.gif
+
+
+gifsicle -O3 --lossy=250 -o /Volumes/Volumina/video-renders/wtwf/new-egg-lossy250.gif /Volumes/Volumina/video-renders/wtwf/new-egg.gif
+
+ffmpeg -f image2 -framerate 24 -i /Volumes/Volumina/frames/wtwf/new-egg/sketch-%05d.png -i /Volumes/Volumina/frames/wtwf/new-egg-palette.png -lavfi paletteuse -s 520x520 /Volumes/Volumina/video-renders/wtwf/new-egg-520x520.gif
+
+ffmpeg -f image2 -framerate 24 -i /Volumes/Volumina/frames/wtwf/new-egg/sketch-%05d.png -i /Volumes/Volumina/frames/wtwf/new-egg-palette.png -lavfi paletteuse -s 680x680 /Volumes/Volumina/video-renders/wtwf/new-egg-680x680.gif
+
+ffmpeg -f image2 -framerate 24 -i /Volumes/Volumina/frames/wtwf/new-egg-nograin/sketch-%05d.png -vf palettegen /Volumes/Volumina/frames/wtwf/new-egg-nograin-palette.png
+
+ffmpeg -f image2 -framerate 24 -i /Volumes/Volumina/frames/wtwf/new-egg-nograin/sketch-%05d.png -i /Volumes/Volumina/frames/wtwf/new-egg-nograin-palette.png -lavfi paletteuse -s 680x680 /Volumes/Volumina/video-renders/wtwf/new-egg-nograin-680x680.gif
+
+ffmpeg -i /Volumes/Volumina/frames/wtwf/new-egg-nograin/sketch-%05d.png -s 680x680 /Volumes/Volumina/frames/wtwf/new-egg-nograin-680x680/sketch-%05d.png 
+
+ffmpeg -f image2 -framerate 24 -i /Volumes/Volumina/frames/wtwf/new-egg-nograin-680x680/sketch-%05d.png -i /Volumes/Volumina/frames/wtwf/new-egg-nograin-palette.png -lavfi paletteuse /Volumes/Volumina/video-renders/wtwf/new-egg-nograin-resized-680x680.gif
+
+
+gifsicle -O3 --lossy=50 -o /Volumes/Volumina/video-renders/wtwf/new-egg-nograin-resized-680x680-lossy50.gif /Volumes/Volumina/video-renders/wtwf/new-egg-nograin-resized-680x680.gif
+
+gifsicle -O3 --lossy=10 -o /Volumes/Volumina/video-renders/wtwf/new-egg-nograin-resized-680x680-lossy10.gif /Volumes/Volumina/video-renders/wtwf/new-egg-nograin-resized-680x680.gif
+
+gifsicle -O3 --lossy=5 -o /Volumes/Volumina/video-renders/wtwf/new-egg-nograin-resized-680x680-lossy5.gif /Volumes/Volumina/video-renders/wtwf/new-egg-nograin-resized-680x680.gif
+
+
+gifsicle -O3 --lossy=7 -o /Volumes/Volumina/video-renders/wtwf/new-egg-nograin-resized-680x680-lossy7.gif /Volumes/Volumina/video-renders/wtwf/new-egg-nograin-resized-680x680.gif
+
+ffmpeg -i /Volumes/Volumina/frames/wtwf/new-egg/sketch-%05d.png -s 680x680 /Volumes/Volumina/frames/wtwf/new-egg-680x680/sketch-%05d.png 
+
+ffmpeg -f image2 -framerate 24 -i /Volumes/Volumina/frames/wtwf/new-egg-680x680/sketch-%05d.png -i /Volumes/Volumina/frames/wtwf/new-egg-palette.png -lavfi paletteuse /Volumes/Volumina/video-renders/wtwf/new-egg-resized-680x680.gif
