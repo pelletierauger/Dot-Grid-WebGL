@@ -53,7 +53,7 @@ drawDots = function() {
             let yy = y + pow(map(sin(dx + t), -1, 1, 0, 1), 12) * 0;
 //             xx += map(cos(x * t), -1, 1, 0.5, 0.4) * 2;
 //             yy += map(sin(y * t), -1, 1, 0.5, 0.4) * 2;
-            vertices.push(xx * 0.135 * 0.95 - 2.045 + 0.51, yy * 0.06 * 1.0 - 1.85, 0.0);
+            vertices.push(-xx * 0.135 * 0.95 + 1.035 + 0.505, yy * 0.06 * 1.0 - 1.85, 0.0);
         }
     }
     outer += inc;

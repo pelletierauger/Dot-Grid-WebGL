@@ -98,3 +98,43 @@ gifsicle -O3 --lossy=7 -o /Volumes/Volumina/video-renders/wtwf/new-egg-nograin-r
 ffmpeg -i /Volumes/Volumina/frames/wtwf/new-egg/sketch-%05d.png -s 680x680 /Volumes/Volumina/frames/wtwf/new-egg-680x680/sketch-%05d.png 
 
 ffmpeg -f image2 -framerate 24 -i /Volumes/Volumina/frames/wtwf/new-egg-680x680/sketch-%05d.png -i /Volumes/Volumina/frames/wtwf/new-egg-palette.png -lavfi paletteuse /Volumes/Volumina/video-renders/wtwf/new-egg-resized-680x680.gif
+
+ffmpeg -f image2 -framerate 24 -i /Volumes/Volumina/frames/wtwf/new-egg-nograin/sketch-%05d.png -i /Volumes/Volumina/frames/wtwf/new-egg-palette.png -lavfi \
+paletteuse=dither=bayer:bayer_scale=0:diff_mode=rectangle \
+/Volumes/Volumina/video-renders/wtwf/new-egg-dither-bayer.gif
+
+gifsicle -O3 --lossy=50 -o /Volumes/Volumina/video-renders/wtwf/new-egg-dither-bayer-lossy50.gif /Volumes/Volumina/video-renders/wtwf/new-egg-dither-bayer.gif
+
+
+ffmpeg -f image2 -framerate 24 -i /Volumes/Volumina/frames/wtwf/new-egg-nograin/sketch-%05d.png -vf palettegen=stats_mode=diff /Volumes/Volumina/frames/wtwf/new-egg-nograin-palette-nodiff.png
+
+ffmpeg -f image2 -framerate 24 -i /Volumes/Volumina/frames/wtwf/new-egg-nograin/sketch-%05d.png -i /Volumes/Volumina/frames/wtwf/new-egg-nograin-palette-nodiff.png -lavfi \
+paletteuse=dither=bayer:bayer_scale=0:diff_mode=rectangle \
+/Volumes/Volumina/video-renders/wtwf/new-egg-nograin-nodiff-dither-bayer.gif
+
+ffmpeg -f image2 -framerate 24 -i /Volumes/Volumina/frames/wtwf/new-egg-nograin/sketch-%05d.png -i /Volumes/Volumina/frames/wtwf/new-egg-nograin-palette-nodiff.png -lavfi \
+paletteuse=dither=floyd_steinberg:diff_mode=rectangle \
+/Volumes/Volumina/video-renders/wtwf/new-egg-nograin-floyd_steinberg.gif
+
+ffmpeg -f image2 -framerate 24 -i /Volumes/Volumina/frames/wtwf/new-egg-nograin/sketch-%05d.png -i /Volumes/Volumina/frames/wtwf/new-egg-nograin-palette-nodiff.png -lavfi \
+paletteuse=dither=sierra2:diff_mode=rectangle \
+/Volumes/Volumina/video-renders/wtwf/new-egg-nograin-sierra2.gif
+
+ffmpeg -i /Volumes/Volumina/frames/wtwf/new-egg-nograin/sketch-%05d.png -s 680x680 /Volumes/Volumina/frames/wtwf/new-egg-nograin-800x800/sketch-%05d.png 
+
+ffmpeg -f image2 -framerate 24 -i /Volumes/Volumina/frames/wtwf/new-egg-nograin-800x800/sketch-%05d.png -i /Volumes/Volumina/frames/wtwf/new-egg-nograin-palette-nodiff.png -lavfi \
+paletteuse=dither=sierra2:diff_mode=rectangle \
+/Volumes/Volumina/video-renders/wtwf/new-egg-nograin-800x800-sierra2.gif
+
+
+gifsicle -O3 --lossy=3 -o /Volumes/Volumina/video-renders/wtwf/new-egg-nograin-800x800-sierra2-lossy-3.gif /Volumes/Volumina/video-renders/wtwf/new-egg-nograin-800x800-sierra2.gif
+
+ffmpeg -i /Volumes/Volumina/frames/wtwf/new-egg-centered/sketch-%05d.png -filter:v "hflip" -s 800x800 /Volumes/Volumina/frames/wtwf/new-egg-centered-800x800/sketch-%05d.png 
+
+ffmpeg -f image2 -framerate 24 -i /Volumes/Volumina/frames/wtwf/new-egg-centered-800x800/sketch-%05d.png -i /Volumes/Volumina/frames/wtwf/new-egg-nograin-palette-nodiff.png -lavfi \
+paletteuse=dither=sierra2:diff_mode=rectangle \
+/Volumes/Volumina/video-renders/wtwf/new-egg-centered-800x800-sierra2.gif
+
+gifsicle -O3 --lossy=5 -o /Volumes/Volumina/video-renders/wtwf/new-egg-centered-800x800-sierra2-lossy-5.gif /Volumes/Volumina/video-renders/wtwf/new-egg-centered-800x800-sierra2.gif
+
+ffmpeg -i /Volumes/Volumina/frames/wtwf/new-egg-flip/sketch-%05d.png -s 800x800 /Volumes/Volumina/frames/wtwf/new-egg-flip-800x800/sketch-%05d.png 

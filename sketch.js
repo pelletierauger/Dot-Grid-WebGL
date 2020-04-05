@@ -1,7 +1,7 @@
 let looping = true;
 let keysActive = true;
 let socket, cnvs, ctx, canvasDOM;
-let fileName = "/Volumes/Volumina/frames/wtwf/new-egg-nograin/sketch";
+let fileName = "/Volumes/Volumina/frames/wtwf/new-egg-flip/sketch";
 // a shader variable
 let gl;
 let shaderProgram;
